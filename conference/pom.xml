@@ -49,7 +49,7 @@
     </dependencies>
 
     <build>
-        <finalName>microprofile</finalName>
+        <finalName>conference</finalName>
         <plugins>
             <plugin>
                 <groupId>io.thorntail</groupId>
