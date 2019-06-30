@@ -1,0 +1,10 @@
+{
+  "elasticsearch": [
+    {
+      "hostname": "localhost",
+      "host": "localhost",
+      "path": "people",
+      "port": 9200
+    }
+  ]
+}
