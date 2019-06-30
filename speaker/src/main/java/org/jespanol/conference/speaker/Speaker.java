@@ -1,6 +1,7 @@
 package org.jespanol.conference.speaker;
 
 import jakarta.nosql.mapping.Column;
+import jakarta.nosql.mapping.Convert;
 import jakarta.nosql.mapping.Entity;
 import jakarta.nosql.mapping.Id;
 
@@ -12,6 +13,7 @@ import java.util.Objects;
 public class Speaker {
 
     @Id
+    @Convert(ObjectIdConverter.class)
     private String id;
 
     @Column
