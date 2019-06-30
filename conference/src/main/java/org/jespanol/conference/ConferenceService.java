@@ -24,12 +24,12 @@ public class ConferenceService {
     }
 
     @Transactional
-    public void delete(Long id) {
+    public void delete(Integer id) {
         find(id).ifPresent(c -> entityManager.remove(c));
     }
 
 
-    public Optional<Conference> find(Long id) {
+    public Optional<Conference> find(Integer id) {
         return Optional.ofNullable(entityManager.find(Conference.class, id));
     }
 

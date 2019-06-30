@@ -35,14 +35,14 @@ public class ConferenceResource {
 
     @GET
     @Path("{id}")
-    public Conference findById(@PathParam("id") Long id) {
+    public Conference findById(@PathParam("id") Integer id) {
         final Optional<Conference> conference = conferenceService.find(id);
         return conference.orElseThrow(this::notFound);
     }
 
     @PUT
     @Path("{id}")
-    public Conference update(@PathParam("id") Long id, Conference newConference) {
+    public Conference update(@PathParam("id") Integer id, Conference newConference) {
         final Optional<Conference> optional = conferenceService.find(id);
         final Conference conference = optional.orElseThrow(() -> notFound());
         conference.update(newConference);
@@ -52,7 +52,7 @@ public class ConferenceResource {
 
     @DELETE
     @Path("{id}")
-    public Response remove(@PathParam("id") Long id) {
+    public Response remove(@PathParam("id") Integer id) {
         conferenceService.delete(id);
         return status(NO_CONTENT).build();
     }
