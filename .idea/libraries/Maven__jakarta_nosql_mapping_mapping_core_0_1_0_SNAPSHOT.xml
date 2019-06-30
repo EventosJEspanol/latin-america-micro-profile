@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: jakarta.nosql.mapping:mapping-core:0.1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/jakarta/nosql/mapping/mapping-core/0.1.0-SNAPSHOT/mapping-core-0.1.0-20190628.230800-1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/jakarta/nosql/mapping/mapping-core/0.1.0-SNAPSHOT/mapping-core-0.1.0-20190628.230800-1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/jakarta/nosql/mapping/mapping-core/0.1.0-SNAPSHOT/mapping-core-0.1.0-20190628.230800-1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.jnosql.diana:elasticsearch-driver:0.1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jnosql/diana/elasticsearch-driver/0.1.0-SNAPSHOT/elasticsearch-driver-0.1.0-20190628.215901-2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jnosql/diana/elasticsearch-driver/0.1.0-SNAPSHOT/elasticsearch-driver-0.1.0-20190628.215901-2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jnosql/diana/elasticsearch-driver/0.1.0-SNAPSHOT/elasticsearch-driver-0.1.0-20190628.215901-2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

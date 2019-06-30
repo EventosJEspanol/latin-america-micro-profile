@@ -1,0 +1,17 @@
+= Latin America Trip
+
+
+
+=== Local Configuration
+
+image::https://www.docker.com/sites/default/files/horizontal_large.png[Docker,align="center"]
+
+1. Install docker: https://www.docker.com/
+2. https://hub.docker.com/_/solr/
+3. Run docker command
+4. `docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.8.1`
+5. `docker run -d --name mongodb-instance -p 27017:27017 mongo`
+6. `docker run -d --name postgresql -p 5432:5432  -e POSTGRES_PASSWORD=password -e POSTGRES_DB=conference`
+
+
+=== Cloud Configuration

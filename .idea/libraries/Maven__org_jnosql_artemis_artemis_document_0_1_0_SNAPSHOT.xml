@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.jnosql.artemis:artemis-document:0.1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jnosql/artemis/artemis-document/0.1.0-SNAPSHOT/artemis-document-0.1.0-20190628.220043-3.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jnosql/artemis/artemis-document/0.1.0-SNAPSHOT/artemis-document-0.1.0-20190628.220043-3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jnosql/artemis/artemis-document/0.1.0-SNAPSHOT/artemis-document-0.1.0-20190628.220043-3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

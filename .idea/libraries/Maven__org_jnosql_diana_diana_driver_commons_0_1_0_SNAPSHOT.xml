@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.jnosql.diana:diana-driver-commons:0.1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jnosql/diana/diana-driver-commons/0.1.0-SNAPSHOT/diana-driver-commons-0.1.0-20190628.220321-2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jnosql/diana/diana-driver-commons/0.1.0-SNAPSHOT/diana-driver-commons-0.1.0-20190628.220321-2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/jnosql/diana/diana-driver-commons/0.1.0-SNAPSHOT/diana-driver-commons-0.1.0-20190628.220321-2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

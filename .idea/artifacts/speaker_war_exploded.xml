@@ -1,0 +1,45 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="speaker:war exploded">
+    <output-path>$PROJECT_DIR$/speaker/target/speaker</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>speaker</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="speaker" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: sh.platform:config:0.0.1-SNAPSHOT" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.5" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jnosql/artemis/artemis-document/0.1.0-SNAPSHOT/artemis-document-0.1.0-20190628.220043-3.jar" output-file-name="artemis-document-0.1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jnosql/diana/diana-document/0.1.0-SNAPSHOT/diana-document-0.1.0-20190628.215927-3.jar" output-file-name="diana-document-0.1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jnosql/diana/diana-core/0.1.0-SNAPSHOT/diana-core-0.1.0-20190628.215853-3.jar" output-file-name="diana-core-0.1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/jakarta/nosql/communication/communication-core/0.1.0-SNAPSHOT/communication-core-0.1.0-20190628.230727-1.jar" output-file-name="communication-core-0.1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jnosql/diana/diana-query/0.1.0-SNAPSHOT/diana-query-0.1.0-20190628.215840-1.jar" output-file-name="diana-query-0.1.0-SNAPSHOT.jar" />
+          <element id="library" level="project" name="Maven: org.antlr:antlr4-runtime:4.7.2" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/jakarta/nosql/communication/communication-query/0.1.0-SNAPSHOT/communication-query-0.1.0-20190628.230824-1.jar" output-file-name="communication-query-0.1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/jakarta/nosql/communication/communication-document/0.1.0-SNAPSHOT/communication-document-0.1.0-20190628.230744-1.jar" output-file-name="communication-document-0.1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jnosql/artemis/artemis-core/0.1.0-SNAPSHOT/artemis-core-0.1.0-20190628.220059-3.jar" output-file-name="artemis-core-0.1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/jakarta/nosql/mapping/mapping-core/0.1.0-SNAPSHOT/mapping-core-0.1.0-20190628.230800-1.jar" output-file-name="mapping-core-0.1.0-SNAPSHOT.jar" />
+          <element id="library" level="project" name="Maven: org.yaml:snakeyaml:1.24" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/jakarta/nosql/mapping/mapping-document/0.1.0-SNAPSHOT/mapping-document-0.1.0-20190628.230820-1.jar" output-file-name="mapping-document-0.1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jnosql/diana/mongodb-driver/0.1.0-SNAPSHOT/mongodb-driver-0.1.0-20190628.215928-2.jar" output-file-name="mongodb-driver-0.1.0-SNAPSHOT.jar" />
+          <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jnosql/diana/diana-driver-commons/0.1.0-SNAPSHOT/diana-driver-commons-0.1.0-20190628.220321-2.jar" output-file-name="diana-driver-commons-0.1.0-SNAPSHOT.jar" />
+          <element id="library" level="project" name="Maven: org.mongodb:mongo-java-driver:3.10.1" />
+          <element id="library" level="project" name="Maven: org.mongodb:mongodb-driver-async:3.10.1" />
+          <element id="library" level="project" name="Maven: org.mongodb:bson:3.10.1" />
+          <element id="library" level="project" name="Maven: org.mongodb:mongodb-driver-core:3.10.1" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/speaker/target/speaker/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="speaker/web/Web" />
+    </root>
+  </artifact>
+</component>
