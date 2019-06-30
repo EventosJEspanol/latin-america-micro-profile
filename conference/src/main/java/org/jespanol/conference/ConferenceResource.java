@@ -42,10 +42,10 @@ public class ConferenceResource {
 
     @PUT
     @Path("{id}")
-    public Conference update(@PathParam("id") Integer id, Conference newConference) {
+    public Conference update(@PathParam("id") Integer id, Conference conferenceUpdated) {
         final Optional<Conference> optional = conferenceService.find(id);
         final Conference conference = optional.orElseThrow(() -> notFound());
-        conference.update(newConference);
+        conference.update(conferenceUpdated);
         conferenceService.update(conference);
         return conference;
     }
