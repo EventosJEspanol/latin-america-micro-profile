@@ -1,4 +1,4 @@
-package sh.platform.template;
+package org.jespanol.conference.speaker;
 
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.GET;
