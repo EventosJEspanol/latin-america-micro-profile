@@ -1,4 +1,4 @@
-package org.jespanol.conference.speaker;
+package org.jespanol.conference.conference;
 
 import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Convert;
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Speaker {
+public class Conference {
 
     @Id
     @Convert(ObjectIdConverter.class)
@@ -61,10 +61,10 @@ public class Speaker {
     }
 
 
-    public void update(Speaker speaker) {
-        this.bio = speaker.bio;
-        this.name = speaker.name;
-        this.links = speaker.links;
+    public void update(Conference conference) {
+        this.bio = conference.bio;
+        this.name = conference.name;
+        this.links = conference.links;
     }
 
     @Override
@@ -75,8 +75,8 @@ public class Speaker {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Speaker speaker = (Speaker) o;
-        return Objects.equals(id, speaker.id);
+        Conference conference = (Conference) o;
+        return Objects.equals(id, conference.id);
     }
 
     @Override
@@ -86,7 +86,7 @@ public class Speaker {
 
     @Override
     public String toString() {
-        return "Speaker{" +
+        return "Conference{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", bio='" + bio + '\'' +

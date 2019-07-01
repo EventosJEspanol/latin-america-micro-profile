@@ -1,4 +1,4 @@
-package org.jespanol.conference.speaker;
+package org.jespanol.conference.conference;
 
 import com.mongodb.MongoClient;
 import jakarta.nosql.document.DocumentCollectionManager;

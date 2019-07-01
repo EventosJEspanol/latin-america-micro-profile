@@ -1,4 +1,4 @@
-package org.jespanol.conference.speaker;
+package org.jespanol.conference.conference;
 
 import jakarta.nosql.mapping.AttributeConverter;
 import org.bson.types.ObjectId;

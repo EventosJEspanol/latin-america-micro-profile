@@ -1,4 +1,4 @@
-package org.jespanol.conference.speaker;
+package org.jespanol.conference.conference;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;

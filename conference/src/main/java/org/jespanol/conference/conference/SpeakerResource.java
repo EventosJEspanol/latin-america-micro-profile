@@ -1,4 +1,4 @@
-package org.jespanol.conference.speaker;
+package org.jespanol.conference.conference;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -26,40 +26,40 @@ import static javax.ws.rs.core.Response.status;
 public class SpeakerResource {
 
     @Inject
-    private SpeakerRepository speakerRepository;
+    private ConferenceRepository conferenceRepository;
 
     @GET
-    public List<Speaker> doGet() {
-        return speakerRepository.findAll();
+    public List<Conference> doGet() {
+        return conferenceRepository.findAll();
     }
 
     @GET
     @Path("{id}")
-    public Speaker findById(@PathParam("id") String id) {
-        final Optional<Speaker> conference = speakerRepository.findById(id);
+    public Conference findById(@PathParam("id") String id) {
+        final Optional<Conference> conference = conferenceRepository.findById(id);
         return conference.orElseThrow(this::notFound);
     }
 
     @PUT
     @Path("{id}")
-    public Speaker update(@PathParam("id") String id, Speaker speakerUpdated) {
-        final Optional<Speaker> optional = speakerRepository.findById(id);
-        final Speaker speaker = optional.orElseThrow(() -> notFound());
-        speaker.update(speakerUpdated);
-        speakerRepository.save(speaker);
-        return speaker;
+    public Conference update(@PathParam("id") String id, Conference conferenceUpdated) {
+        final Optional<Conference> optional = conferenceRepository.findById(id);
+        final Conference conference = optional.orElseThrow(() -> notFound());
+        conference.update(conferenceUpdated);
+        conferenceRepository.save(conference);
+        return conference;
     }
 
     @DELETE
     @Path("{id}")
     public Response remove(@PathParam("id") String id) {
-        speakerRepository.deleteById(id);
+        conferenceRepository.deleteById(id);
         return status(NO_CONTENT).build();
     }
 
     @POST
-    public Speaker insert(Speaker conference) {
-        return speakerRepository.save(conference);
+    public Conference insert(Conference conference) {
+        return conferenceRepository.save(conference);
     }
 
     private WebApplicationException notFound() {
