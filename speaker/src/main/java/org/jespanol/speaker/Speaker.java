@@ -1,16 +1,11 @@
-package org.jespanol.conference;
-
-import org.jespanol.conference.infra.YearAttributeConverter;
+package org.jespanol.speaker;
 
 import javax.persistence.Column;
-import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.time.Year;
 import java.util.Objects;
 
 @Entity

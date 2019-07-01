@@ -1,4 +1,4 @@
-package org.jespanol.conference.infra;
+package org.jespanol.speaker.infra;
 
 import sh.platform.config.Config;
 import sh.platform.config.JPA;

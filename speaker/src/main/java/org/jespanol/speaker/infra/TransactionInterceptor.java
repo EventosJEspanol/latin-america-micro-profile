@@ -1,6 +1,6 @@
-package org.jespanol.conference.infra;
+package org.jespanol.speaker.infra;
 
-import org.jespanol.conference.Transactional;
+import org.jespanol.speaker.Transactional;
 
 import javax.annotation.Priority;
 import javax.inject.Inject;

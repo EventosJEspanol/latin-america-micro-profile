@@ -1,4 +1,4 @@
-package org.jespanol.conference;
+package org.jespanol.speaker;
 
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.GET;

@@ -1,4 +1,4 @@
-package org.jespanol.conference.infra;
+package org.jespanol.speaker.infra;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;

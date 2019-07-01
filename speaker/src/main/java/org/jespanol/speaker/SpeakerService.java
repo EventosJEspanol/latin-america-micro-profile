@@ -1,4 +1,4 @@
-package org.jespanol.conference;
+package org.jespanol.speaker;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 @ApplicationScoped
-public class ConferenceService {
+public class SpeakerService {
 
     @Inject
     private EntityManager entityManager;

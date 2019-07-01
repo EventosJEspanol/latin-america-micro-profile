@@ -1,4 +1,4 @@
-package org.jespanol.conference;
+package org.jespanol.speaker;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -26,40 +26,40 @@ import static javax.ws.rs.core.Response.status;
 public class ConferenceResource {
 
     @Inject
-    private ConferenceService conferenceService;
+    private SpeakerService speakerService;
 
     @GET
     public List<Speaker> doGet() {
-        return conferenceService.findAll();
+        return speakerService.findAll();
     }
 
     @GET
     @Path("{id}")
     public Speaker findById(@PathParam("id") Integer id) {
-        final Optional<Speaker> conference = conferenceService.find(id);
+        final Optional<Speaker> conference = speakerService.find(id);
         return conference.orElseThrow(this::notFound);
     }
 
     @PUT
     @Path("{id}")
     public Speaker update(@PathParam("id") Integer id, Speaker speakerUpdated) {
-        final Optional<Speaker> optional = conferenceService.find(id);
+        final Optional<Speaker> optional = speakerService.find(id);
         final Speaker speaker = optional.orElseThrow(() -> notFound());
         speaker.update(speakerUpdated);
-        conferenceService.update(speaker);
+        speakerService.update(speaker);
         return speaker;
     }
 
     @DELETE
     @Path("{id}")
     public Response remove(@PathParam("id") Integer id) {
-        conferenceService.delete(id);
+        speakerService.delete(id);
         return status(NO_CONTENT).build();
     }
 
     @POST
     public Speaker insert(Speaker speaker) {
-        return conferenceService.insert(speaker);
+        return speakerService.insert(speaker);
     }
 
     private WebApplicationException notFound() {

@@ -1,4 +1,4 @@
-package org.jespanol.conference;
+package org.jespanol.speaker;
 
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.ElementType.METHOD;
