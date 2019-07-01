@@ -57,9 +57,14 @@ image::https://www.docker.com/sites/default/files/horizontal_large.png[Docker,al
 
 The services are up; the next step is to run the applications:
 
-* conference:
-* session:
-* speaker:
-
+* conference (thorntail):
+  1. `mvn -DskipTests clean package thorntail:package`
+  2. `java -jar -Xmx512m -Dswarm.http.port=$PORT target/conference-thorntail.jar`
+* session (kumuluzee):
+  1. `mvn -DskipTests clean package kumuluzee:repackage`
+  2. `java -jar -Xmx512m -Dkumuluzee.server.http.port=$PORT target/session.jar`
+* speaker (Payara):
+  1. `mvn -DskipTests clean package payara-micro:bundle`
+  2. `java -jar -Xmx512m target/speaker-microbundle.jar --port $PORT`
 
 === Cloud Configuration
