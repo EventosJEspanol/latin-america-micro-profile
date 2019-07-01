@@ -1,9 +1,6 @@
 package org.jespanol.session;
 
 import jakarta.nosql.document.DocumentCollectionManager;
-import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
-import org.elasticsearch.action.admin.indices.get.GetIndexRequest;
-import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManagerFactory;
 import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentConfiguration;
@@ -27,13 +24,6 @@ public class ManagerConfig {
         final RestHighLevelClient client = elasticsearch.get();
         ElasticsearchDocumentConfiguration configuration = new ElasticsearchDocumentConfiguration();
         final ElasticsearchDocumentCollectionManagerFactory factory = configuration.get(client);
-        CreateIndexRequest request = new CreateIndexRequest(INDEX);
-
-        GetIndexRequest exist = new GetIndexRequest();
-        exist.indices(INDEX);
-        if (!client.indices().exists(exist, RequestOptions.DEFAULT)) {
-            client.indices().create(request, RequestOptions.DEFAULT);
-        }
         return factory.get(INDEX);
     }
 }
