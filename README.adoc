@@ -14,7 +14,7 @@ image::https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elep
 
 PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and technical standards compliance. It is designed to handle a range of workloads, from single machines to data warehouses or Web services with many concurrent users.
 
-image::http://assets.stickpng.com/thumbs/58481021cef1014c0b5e494b.png[MongoDB,align="center",width=300,height=300]
+image::https://i.dlpng.com/static/png/414627_preview.png[MongoDB,align="center",width=300,height=300]
 
 MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License
 
