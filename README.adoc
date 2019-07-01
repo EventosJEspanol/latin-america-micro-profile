@@ -6,6 +6,15 @@ These applications have the goals to manage the conferences into Latin America t
 * **Conference**: The conference microservices that work with lectures, it has the name, city, and year of the conference trip.
 * **Session**: The session in the conference, it has the name, title, description, and both conference and speakers information.
 
+== Databases
+
+Each Microservices a better database to attend its particular request:
+
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/220px-Postgresql_elephant.svg.png[PostgreSQL,align="center"]
+
+image::https://webassets.mongodb.com/_com_assets/cms/mongodb-logo-rgb-j6w271g1xn.jpg[MongoDB,align="center"]
+
+image::https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt6ae3d6980b5fd629/5bbca1d1af3a954c36f95ed3/logo-elastic.svg[Elasticsearch,align="center"]
 
 === Local Configuration
 
