@@ -67,4 +67,5 @@ The services are up; the next step is to run the applications:
   1. `mvn -DskipTests clean package payara-micro:bundle`
   2. `java -jar -Xmx512m target/speaker-microbundle.jar --port $PORT`
 
+
 === Cloud Configuration
