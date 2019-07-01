@@ -1,4 +1,4 @@
-package org.jespanol.conference.session;
+package org.jespanol.session;
 
 import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Entity;

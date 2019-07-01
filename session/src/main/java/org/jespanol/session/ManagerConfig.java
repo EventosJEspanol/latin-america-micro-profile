@@ -1,4 +1,4 @@
-package org.jespanol.conference.session;
+package org.jespanol.session;
 
 import jakarta.nosql.document.DocumentCollectionManager;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;

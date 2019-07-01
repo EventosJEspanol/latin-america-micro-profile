@@ -1,4 +1,4 @@
-package org.jespanol.conference.session;
+package org.jespanol.session;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
