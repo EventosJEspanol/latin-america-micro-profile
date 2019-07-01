@@ -5,6 +5,7 @@ import jakarta.nosql.mapping.Convert;
 import jakarta.nosql.mapping.Entity;
 import jakarta.nosql.mapping.Id;
 
+import java.time.Year;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
@@ -20,10 +21,19 @@ public class Conference {
     private String name;
 
     @Column
-    private String bio;
+    private String city;
 
     @Column
-    private List<String> links;
+    private String link;
+
+    @Column
+    private Year year;
+
+    @Column
+    private List<Speaker> speakers;
+
+    @Column
+    private List<Session> sessions;
 
     public String getId() {
         return id;
@@ -41,30 +51,53 @@ public class Conference {
         this.name = name;
     }
 
-    public String getBio() {
-        return bio;
+    public String getCity() {
+        return city;
     }
 
-    public void setBio(String bio) {
-        this.bio = bio;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-    public List<String> getLinks() {
-        if (links == null) {
-            return Collections.emptyList();
-        }
-        return links;
+    public String getLink() {
+        return link;
     }
 
-    public void setLinks(List<String> links) {
-        this.links = links;
+    public void setLink(String link) {
+        this.link = link;
     }
 
+    public Year getYear() {
+        return year;
+    }
+
+    public void setYear(Year year) {
+        this.year = year;
+    }
+
+    public List<Speaker> getSpeakers() {
+        return speakers;
+    }
+
+    public void setSpeakers(List<Speaker> speakers) {
+        this.speakers = speakers;
+    }
+
+    public List<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(List<Session> sessions) {
+        this.sessions = sessions;
+    }
 
     public void update(Conference conference) {
-        this.bio = conference.bio;
+        this.city = conference.city;
         this.name = conference.name;
-        this.links = conference.links;
+        this.year = conference.year;
+        this.speakers = conference.speakers;
+        this.sessions = conference.sessions;
+        this.link = conference.link;
     }
 
     @Override
@@ -89,9 +122,11 @@ public class Conference {
         return "Conference{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", bio='" + bio + '\'' +
-                ", links=" + links +
+                ", city='" + city + '\'' +
+                ", link='" + link + '\'' +
+                ", year=" + year +
+                ", speakers=" + speakers +
+                ", sessions=" + sessions +
                 '}';
     }
-
 }

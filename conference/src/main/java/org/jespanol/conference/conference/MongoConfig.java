@@ -20,6 +20,6 @@ public class MongoConfig {
         final MongoClient mongoClient = mongo.get();
         MongoDBDocumentConfiguration configuration = new MongoDBDocumentConfiguration();
         MongoDBDocumentCollectionManagerFactory factory = configuration.get(mongoClient);
-        return factory.get("conference");
+        return factory.get("conferences");
     }
 }
