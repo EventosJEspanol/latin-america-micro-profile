@@ -25,7 +25,7 @@ Elasticsearch is a search engine based on the Lucene library. It provides a dist
 
 == Eclipse MicroProfile implementations
 
-image::https://microprofile.io/wp-content/uploads/2018/06/MP-logo-w-tagline.png[Eclipse MicroProfile,align="center",width=220,height=220]
+image::https://microprofile.io/wp-content/uploads/2018/06/MP-logo-w-tagline.png[Eclipse MicroProfile,align="center"]
 
 The microprofile.io community (http://microprofile.io/) is a semi-new community dedicated to optimizing the Enterprise Java mission for microservice based architectures. The goal is to define a microservices application platform that is portable across multiple runtimes. Currently, the main players in this group are IBM, Red Hat, Tomitribe, Payara, the London Java Community (LJC) and SouJava. Additional key industry individuals are also participating.
 
