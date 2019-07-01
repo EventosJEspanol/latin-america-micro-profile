@@ -1,5 +1,45 @@
 = Latin America Trip
 
+These applications have the goals to manage the conferences into Latin America trip. We have three microservices:
+
+* **Speaker**: The speaker microservices that handle with the name, bio, and social media links of a speaker.
+* **Conference**: The conference microservices that work with lectures, it has the name, city, and year of the conference trip.
+* **Session**: The session in the conference, it has the name, title, description, and both conference and speakers information.
+
+== Databases
+
+Each Microservices a better database to attend its particular request:
+
+image::https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/220px-Postgresql_elephant.svg.png[PostgreSQL,align="center",width=220,height=220]
+
+PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and technical standards compliance. It is designed to handle a range of workloads, from single machines to data warehouses or Web services with many concurrent users.
+
+image::https://i.dlpng.com/static/png/414627_preview.png[MongoDB,align="center",width=300,height=300]
+
+MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License
+
+image::https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt6ae3d6980b5fd629/5bbca1d1af3a954c36f95ed3/logo-elastic.svg[Elasticsearch,align="center",width=220,height=420]
+
+Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents. Elasticsearch is developed in Java.
+
+
+== Eclipse MicroProfile implementations
+
+image::https://microprofile.io/wp-content/uploads/2018/06/MP-logo-w-tagline.png[Eclipse MicroProfile,align="center"]
+
+The microprofile.io community (http://microprofile.io/) is a semi-new community dedicated to optimizing the Enterprise Java mission for microservice based architectures. The goal is to define a microservices application platform that is portable across multiple runtimes. Currently, the main players in this group are IBM, Red Hat, Tomitribe, Payara, the London Java Community (LJC) and SouJava. Additional key industry individuals are also participating.
+
+
+image::https://developers.redhat.com/blog/wp-content/uploads/2018/10/thorntail_vertical_rgb_600px_default.png[Thorntail,align="center"]
+Thorntail offers an innovative approach to packaging and running Java EE applications by packaging them with just enough of the server runtime to "java -jar" your application. It's MicroProfile compatible, too. And, it's all much, much cooler than that: https://thorntail.io/
+
+
+image::https://www.payara.fish/payara-site/media/gb/micro-logo-for-blue-fade-RGB.png[Payara,align="center"]
+Payara Micro is the open source, lightweight middleware platform of choice for containerized Java EE (Jakarta EE) microservices deployments.  Less than 70MB in size, Payara Micro requires no installation or configuration and no need for code rewrites  – so you can build and deploy a fully working app within minutes: https://www.payara.fish/software/payara-server/payara-micro/
+
+image::https://avatars0.githubusercontent.com/u/6859905?s=280&v=4[KumuluzEE,align="center"]
+
+Develop microservices with Java EE / Jakarta EE technologies and extend them with Node.js, Go and other languages. Migrate existing Java EE applications to microservices and cloud-native architecture: https://ee.kumuluz.com/
 
 
 === Local Configuration
@@ -7,11 +47,25 @@
 image::https://www.docker.com/sites/default/files/horizontal_large.png[Docker,align="center"]
 
 1. Install docker: https://www.docker.com/
-2. https://hub.docker.com/_/solr/
-3. Run docker command
-4. `docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.8.1`
-5. `docker run -d --name mongodb-instance -p 27017:27017 mongo`
-6. `docker run -d --name postgresql -p 5432:5432  -e POSTGRES_PASSWORD=password -e POSTGRES_DB=conference`
+2. Run docker command
+3. `docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.8.1`
+4. `docker run -d --name mongodb-instance -p 27017:27017 mongo`
+5. `docker run -d --name postgresql -p 5432:5432  -e POSTGRES_PASSWORD=password -e POSTGRES_DB=conference postgres`
+
+
+=== Run Applications
+
+The services are up; the next step is to run the applications:
+
+* conference (thorntail):
+  1. `mvn -DskipTests clean package thorntail:package`
+  2. `java -jar -Xmx512m -Dswarm.http.port=$PORT target/conference-thorntail.jar`
+* session (kumuluzee):
+  1. `mvn -DskipTests clean package kumuluzee:repackage`
+  2. `java -jar -Xmx512m -Dkumuluzee.server.http.port=$PORT target/session.jar`
+* speaker (Payara):
+  1. `mvn -DskipTests clean package payara-micro:bundle`
+  2. `java -jar -Xmx512m target/speaker-microbundle.jar --port $PORT`
 
 
 === Cloud Configuration
