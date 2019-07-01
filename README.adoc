@@ -50,7 +50,16 @@ image::https://www.docker.com/sites/default/files/horizontal_large.png[Docker,al
 2. Run docker command
 3. `docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.8.1`
 4. `docker run -d --name mongodb-instance -p 27017:27017 mongo`
-5. `docker run -d --name postgresql -p 5432:5432  -e POSTGRES_PASSWORD=password -e POSTGRES_DB=conference`
+5. `docker run -d --name postgresql -p 5432:5432  -e POSTGRES_PASSWORD=password -e POSTGRES_DB=conference postgres`
+
+
+=== Run Applications
+
+The services are up; the next step is to run the applications:
+
+* conference:
+* session:
+* speaker:
 
 
 === Cloud Configuration
