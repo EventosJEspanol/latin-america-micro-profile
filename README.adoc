@@ -1,6 +1,6 @@
 = Latin America Trip
 
-
+These applications have the goals to manage the conferences into Latin America trip. We have three microservices:
 
 === Local Configuration
 
