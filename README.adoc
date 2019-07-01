@@ -3,7 +3,7 @@
 These applications have the goals to manage the conferences into Latin America trip. We have three microservices:
 
 * **Speaker**: The speaker microservices that handle with the name, bio, and social media links of a speaker.
-* **Conference**: The conference microservices that work with conferences, it has the name, city, and year of the conference trip.
+* **Conference**: The conference microservices that work with lectures, it has the name, city, and year of the conference trip.
 * **Session**: The session in the conference, it has the name, title, description, and both conference and speakers information.
 
 
