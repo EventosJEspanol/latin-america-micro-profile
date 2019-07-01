@@ -1,0 +1,14 @@
+# This file defines services you want available to your application.
+
+elasticsearch:
+    type: elasticsearch:6.5
+    disk: 512
+    size: S
+mongodb:
+    type: mongodb:3.6
+    disk: 512
+    size: S
+postgresql:
+    type: postgresql:11
+    disk: 512
+    size: S

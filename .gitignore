@@ -12,6 +12,10 @@ nbactions-*.xml
 nbactions.xml
 audit.log
 .idea/
+conference/conference.iml
+parent.iml
+session/session.iml
+speaker/speaker.iml
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
 .distribution
