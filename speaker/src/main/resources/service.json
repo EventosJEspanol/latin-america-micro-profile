@@ -4,7 +4,7 @@
       "username": "postgres",
       "hostname": "localhost",
       "host": "localhost",
-      "path": "conference",
+      "path": "speaker",
       "password": "password",
       "port": 5432
     }

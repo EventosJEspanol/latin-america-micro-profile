@@ -13,14 +13,14 @@ public class ConferenceService {
     private EntityManager entityManager;
 
     @Transactional
-    public Conference insert(Conference conference) {
-        entityManager.persist(conference);
-        return conference;
+    public Speaker insert(Speaker speaker) {
+        entityManager.persist(speaker);
+        return speaker;
     }
 
     @Transactional
-    public void update(Conference conference) {
-        entityManager.persist(conference);
+    public void update(Speaker speaker) {
+        entityManager.persist(speaker);
     }
 
     @Transactional
@@ -29,12 +29,12 @@ public class ConferenceService {
     }
 
 
-    public Optional<Conference> find(Integer id) {
-        return Optional.ofNullable(entityManager.find(Conference.class, id));
+    public Optional<Speaker> find(Integer id) {
+        return Optional.ofNullable(entityManager.find(Speaker.class, id));
     }
 
-    public List<Conference> findAll() {
-        String query = "select e from Conference e";
+    public List<Speaker> findAll() {
+        String query = "select e from Speaker e";
         return entityManager.createQuery(query).getResultList();
     }
 

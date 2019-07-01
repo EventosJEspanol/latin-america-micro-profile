@@ -29,25 +29,25 @@ public class ConferenceResource {
     private ConferenceService conferenceService;
 
     @GET
-    public List<Conference> doGet() {
+    public List<Speaker> doGet() {
         return conferenceService.findAll();
     }
 
     @GET
     @Path("{id}")
-    public Conference findById(@PathParam("id") Integer id) {
-        final Optional<Conference> conference = conferenceService.find(id);
+    public Speaker findById(@PathParam("id") Integer id) {
+        final Optional<Speaker> conference = conferenceService.find(id);
         return conference.orElseThrow(this::notFound);
     }
 
     @PUT
     @Path("{id}")
-    public Conference update(@PathParam("id") Integer id, Conference conferenceUpdated) {
-        final Optional<Conference> optional = conferenceService.find(id);
-        final Conference conference = optional.orElseThrow(() -> notFound());
-        conference.update(conferenceUpdated);
-        conferenceService.update(conference);
-        return conference;
+    public Speaker update(@PathParam("id") Integer id, Speaker speakerUpdated) {
+        final Optional<Speaker> optional = conferenceService.find(id);
+        final Speaker speaker = optional.orElseThrow(() -> notFound());
+        speaker.update(speakerUpdated);
+        conferenceService.update(speaker);
+        return speaker;
     }
 
     @DELETE
@@ -58,8 +58,8 @@ public class ConferenceResource {
     }
 
     @POST
-    public Conference insert(Conference conference) {
-        return conferenceService.insert(conference);
+    public Speaker insert(Speaker speaker) {
+        return conferenceService.insert(speaker);
     }
 
     private WebApplicationException notFound() {

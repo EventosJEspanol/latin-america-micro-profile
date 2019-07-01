@@ -12,6 +12,6 @@ public class HelloWorldResource {
     @GET
     @Produces("text/plain")
     public String doGet() {
-        return "hello from Conferences";
+        return "hello from Speaker";
     }
 }

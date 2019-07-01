@@ -14,8 +14,8 @@ import java.time.Year;
 import java.util.Objects;
 
 @Entity
-@Table(name = "Conference")
-public class Conference {
+@Table(name = "speaker")
+public class Speaker {
 
     @Id
     @GeneratedValue
@@ -25,51 +25,20 @@ public class Conference {
     @NotBlank
     private String name;
 
-    @NotNull
-    @Convert(converter = YearAttributeConverter.class)
     @Column
-    private Year year;
+    private String bio;
 
     @Column
-    @NotNull
-    private String city;
+    private String twitter;
 
-    public Integer getId() {
-        return id;
-    }
+    @Column
+    private String github;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Year getYear() {
-        return year;
-    }
-
-    public void setYear(Year year) {
-        this.year = year;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void update(Conference conference) {
-        this.city = conference.city;
-        this.name = conference.name;
-        this.year = conference.year;
+    public void update(Speaker speaker) {
+        this.twitter = speaker.twitter;
+        this.name = speaker.name;
+        this.github = speaker.github;
     }
 
     @Override
@@ -80,7 +49,7 @@ public class Conference {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Conference that = (Conference) o;
+        Speaker that = (Speaker) o;
         return Objects.equals(id, that.id);
     }
 
@@ -91,14 +60,14 @@ public class Conference {
 
     @Override
     public String toString() {
-        return "Conference{" +
+        return "Speaker{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", year=" + year +
-                ", city='" + city + '\'' +
+                ", bio='" + bio + '\'' +
+                ", twitter='" + twitter + '\'' +
+                ", github='" + github + '\'' +
                 '}';
     }
-
 }
 
 
