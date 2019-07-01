@@ -19,11 +19,11 @@ import java.util.Optional;
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.status;
 
-@Path("conferences")
+@Path("speakers")
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class ConferenceResource {
+public class SpeakerResource {
 
     @Inject
     private SpeakerService speakerService;
