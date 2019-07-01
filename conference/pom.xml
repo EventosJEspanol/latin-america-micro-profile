@@ -8,33 +8,47 @@
     <packaging>war</packaging>
 
     <properties>
-        <version.thorntail>2.4.0.Final</version.thorntail>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.microprofile>2.2</version.microprofile>
+        <version.payara.micro>5.192</version.payara.micro>
+        <payara.version>1.0.5</payara.version>
+        <jnosql.version>0.1.0-SNAPSHOT</jnosql.version>
     </properties>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.thorntail</groupId>
-                <artifactId>bom-all</artifactId>
-                <version>${version.thorntail}</version>
-                <scope>import</scope>
-                <type>pom</type>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+
+    <build>
+        <finalName>conference</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <packagingExcludes>pom.xml</packagingExcludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>fish.payara.maven.plugins</groupId>
+                <artifactId>payara-micro-maven-plugin</artifactId>
+                <version>${payara.version}</version>
+                <configuration>
+                    <payaraVersion>${version.payara.micro}</payaraVersion>
+                    <autoDeployEmptyContextRoot>true</autoDeployEmptyContextRoot>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
     <dependencies>
         <dependency>
-            <groupId>io.thorntail</groupId>
+            <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.4.3.Final</version>
+            <version>${version.microprofile}</version>
+            <type>pom</type>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>sh.platform</groupId>
@@ -42,22 +56,16 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>9.1-901-1.jdbc4</version>
+            <groupId>org.jnosql.artemis</groupId>
+            <artifactId>artemis-document</artifactId>
+            <version>${jnosql.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jnosql.diana</groupId>
+            <artifactId>mongodb-driver</artifactId>
+            <version>${jnosql.version}</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <finalName>conference</finalName>
-        <plugins>
-            <plugin>
-                <groupId>io.thorntail</groupId>
-                <artifactId>thorntail-maven-plugin</artifactId>
-                <version>${version.thorntail}</version>
-            </plugin>
-        </plugins>
-    </build>
 
     <repositories>
         <repository>

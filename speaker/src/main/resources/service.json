@@ -1,10 +1,12 @@
 {
-  "mongodb": [
+  "postgresql": [
     {
+      "username": "postgres",
       "hostname": "localhost",
       "host": "localhost",
-      "path": "people",
-      "port": 27017
+      "path": "conference",
+      "password": "password",
+      "port": 5432
     }
   ]
 }
