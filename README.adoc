@@ -71,6 +71,8 @@ The services are up; the next step is to run the applications:
 === Cloud Configuration
 
 
+Platform.sh is the newest generation of PaaS, which allows the services to manage by the platform itself using infrastructure by code.
+
 
 * [`.platform/routes.yaml`](.platform/routes.yaml): Platform.sh allows you to define the [routes](https://docs.platform.sh/configuration/routes.html).
 * [`.platform/services.yaml`](.platform/services.yaml):  Platform.sh allows you to completely define and configure the topology and [services you want to use on your project](https://docs.platform.sh/configuration/services.html).
