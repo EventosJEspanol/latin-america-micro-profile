@@ -29,4 +29,14 @@ public class HomeController {
     @View("home.html")
     public void homePage() {
     }
+
+    @GET
+    @View("conference.html")
+    public void conference() {
+    }
+
+    @GET
+    @View("speaker.html")
+    public void speaker() {
+    }
 }

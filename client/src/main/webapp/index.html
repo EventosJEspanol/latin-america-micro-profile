@@ -1,12 +1,44 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title of the document</title>
+    <title>Music Store</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
-
 <body>
-Content of the document......
-</body>
+<div class="container">
+    <h1>Music Store</h1>
 
+    <form class="form-search" method="get" action="/">
+        <i class="icon-music"></i>
+        <input type="text" class="input-medium search-query" name="search" >
+        <button type="submit" class="btn">Search</button>
+        <a href="/add" role="button" class="btn" data-toggle="modal">Add music</a>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Music</th>
+                <th>Year</th>
+                <th>Singer</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="music : ${musics}">
+                <td th:text="${music.name}"></td>
+                <td th:text="${music.year}"></td>
+                <td th:text="${music.singer}"></td>
+                <td><a th:href="@{/edit/{id}(id=${music.id})}" ><i class="icon-edit"></i></a></td>
+                <td><a th:href="@{/delete/{id}(id=${music.id})}" ><i class="icon-trash"></i></a></td>
+            </tr>
+            </tbody>
+            </tbody>
+        </table>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
 </html>
