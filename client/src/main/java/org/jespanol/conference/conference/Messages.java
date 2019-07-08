@@ -14,19 +14,26 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.superbiz;
+package org.jespanol.conference.conference;
 
-import javax.mvc.Controller;
-import javax.mvc.View;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import java.io.Serializable;
 
-@Controller
-@Path("home")
-public class HomeController {
+import javax.inject.Named;
+import javax.mvc.RedirectScoped;
 
-    @GET
-    @View("home.html")
-    public void homePage() {
+@Named("message")
+@RedirectScoped
+public class Messages implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    private String messageRedirect;
+
+    public String getMessageRedirect() {
+        return messageRedirect;
+    }
+
+    public void setMessageRedirect(String messageRedirect) {
+        this.messageRedirect = messageRedirect;
     }
 }
