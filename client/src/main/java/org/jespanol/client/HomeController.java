@@ -39,4 +39,9 @@ public class HomeController {
     @View("speaker.html")
     public void speaker() {
     }
+
+    @GET
+    @View("session.html")
+    public void session() {
+    }
 }
