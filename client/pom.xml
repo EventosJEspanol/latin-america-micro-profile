@@ -1,109 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
-    <groupId>org.superbiz</groupId>
-    <artifactId>mvc-cxf</artifactId>
+    <groupId>sh.platform.template</groupId>
+    <artifactId>microprofile-tomee</artifactId>
+    <name>CloudEE Duke</name>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>OpenEJB :: Examples :: MVC (CXF-based)</name>
-    <description>OpenEJB :: Web Examples :: MVC 1.0 - Jakarta NoSQL</description>
-    <version>0.0.1-SNAPSHOT</version>
-    <url>http://tomee.apache.org</url>
-
     <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <version.microprofile>2.2</version.microprofile>
         <tomee.version>8.0.0-M3</tomee.version>
+        <version.payara.micro>5.191</version.payara.micro>
+        <http.port>8888</http.port>
         <version.krazo>1.0.0-SNAPSHOT</version.krazo>
-        <jnosql.version>0.1.0-SNAPSHOT</jnosql.version>
-
     </properties>
 
     <build>
-        <finalName>mvc-cxf</finalName>
+        <finalName>ROOT</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.1.0</version>
+                <version>3.2.2</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <packagingExcludes>pom.xml</packagingExcludes>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.tomee.maven</groupId>
                 <artifactId>tomee-maven-plugin</artifactId>
                 <version>${tomee.version}</version>
                 <configuration>
-                    <args>-Xmx512m -XX:PermSize=256m</args>
+                    <tomeeClassifier>microprofile</tomeeClassifier>
+                    <tomeeHttpPort>${http.port}</tomeeHttpPort>
                 </configuration>
-                <executions>
-                    <execution>
-                        <id>executable-jar</id>
-                        <goals>
-                            <goal>exec</goal>
-                        </goals>
-                        <phase>package</phase>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
 
-    <repositories>
-        <repository>
-            <id>oss.sonatype.org-snapshot</id>
-            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-
     <dependencies>
         <dependency>
-            <groupId>jakarta.enterprise</groupId>
-            <artifactId>jakarta.enterprise.cdi-api</artifactId>
-            <version>2.0.1</version>
+            <groupId>org.eclipse.microprofile</groupId>
+            <artifactId>microprofile</artifactId>
+            <version>${version.microprofile}</version>
+            <type>pom</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>jakarta.ws.rs</groupId>
-            <artifactId>jakarta.ws.rs-api</artifactId>
-            <version>2.1.5</version>
-            <scope>provided</scope>
+            <groupId>sh.platform</groupId>
+            <artifactId>config</artifactId>
+            <version>2.2.0</version>
         </dependency>
-        <dependency>
-            <groupId>jakarta.validation</groupId>
-            <artifactId>jakarta.validation-api</artifactId>
-            <version>2.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <!--Eclipse JNoSQL-->
-        <dependency>
-            <groupId>org.jnosql.artemis</groupId>
-            <artifactId>artemis-document</artifactId>
-            <version>${jnosql.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jnosql.diana</groupId>
-            <artifactId>mongodb-driver</artifactId>
-            <version>${jnosql.version}</version>
-        </dependency>
-
-        <!-- MVC 1.0(JSR 371) -->
         <dependency>
             <groupId>org.eclipse.krazo</groupId>
             <artifactId>krazo-core</artifactId>
@@ -119,5 +72,25 @@
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+        <dependency>
+            <groupId>org.eclipse.krazo.ext</groupId>
+            <artifactId>krazo-thymeleaf</artifactId>
+            <version>${version.krazo}</version>
+        </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>oss.sonatype.org-snapshot</id>
+            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+
 </project>
