@@ -16,32 +16,33 @@
  */
 package org.jespanol.client;
 
+import javax.inject.Inject;
 import javax.mvc.Controller;
+import javax.mvc.Models;
 import javax.mvc.View;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 
 @Controller
-@Path("home")
-public class HomeController {
+@Path("speaker")
+public class SpeakerController {
 
-    @GET
-    @View("home.html")
-    public void homePage() {
-    }
+    @Inject
+    private Models models;
 
-    @GET
-    @View("conference.html")
-    public void conference() {
-    }
+    @Inject
+    private Messages message;
+
+    @Inject
+    private Errors erros;
+
+    @Inject
+    private SpeakerService speakerService;
 
     @GET
     @View("speaker.html")
-    public void speaker() {
+    public void home() {
+        this.models.put("countries", speakerService.findAll());
     }
 
-    @GET
-    @View("session.html")
-    public void session() {
-    }
 }

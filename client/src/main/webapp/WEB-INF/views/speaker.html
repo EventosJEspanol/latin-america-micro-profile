@@ -8,30 +8,32 @@
 </head>
 <body>
 <div class="container">
-    <h1>Music Store</h1>
+    <h1>Speaker</h1>
 
     <form class="form-search" method="get" action="/">
         <i class="icon-music"></i>
         <input type="text" class="input-medium search-query" name="search" >
         <button type="submit" class="btn">Search</button>
-        <a href="/add" role="button" class="btn" data-toggle="modal">Add music</a>
+        <a href="/speaker/add" role="button" class="btn" data-toggle="modal">Add Speaker</a>
         <table class="table table-bordered">
             <thead>
             <tr>
-                <th>Music</th>
-                <th>Year</th>
-                <th>Singer</th>
+                <th>Name</th>
+                <th>Bio</th>
+                <th>Twitter</th>
+                <th>Github</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="music : ${musics}">
-                <td th:text="${music.name}"></td>
-                <td th:text="${music.year}"></td>
-                <td th:text="${music.singer}"></td>
-                <td><a th:href="@{/edit/{id}(id=${music.id})}" ><i class="icon-edit"></i></a></td>
-                <td><a th:href="@{/delete/{id}(id=${music.id})}" ><i class="icon-trash"></i></a></td>
+            <tr th:each="speaker : ${speakers}">
+                <td th:text="${speaker.name}"></td>
+                <td th:text="${speaker.bio}"></td>
+                <td th:text="${speaker.twitter}"></td>
+                <td th:text="${speaker.github}"></td>
+                <td><a th:href="@{/speaker/edit/{id}(id=${speaker.id})}" ><i class="icon-edit"></i></a></td>
+                <td><a th:href="@{/speaker/delete/{id}(id=${speaker.id})}" ><i class="icon-trash"></i></a></td>
             </tr>
             </tbody>
             </tbody>
