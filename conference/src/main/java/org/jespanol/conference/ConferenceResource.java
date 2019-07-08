@@ -29,7 +29,7 @@ public class ConferenceResource {
     private ConferenceRepository conferenceRepository;
 
     @GET
-    public List<Conference> doGet() {
+    public List<Conference> findAll() {
         return conferenceRepository.findAll();
     }
 

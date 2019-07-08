@@ -9,24 +9,25 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("conferences")
-public interface ConferenceResource {
+@Path("speakers")
+public interface SpeakerService {
 
     @GET
-    List<Conference> findAll();
+    List<Speaker> findAll();
 
     @GET
     @Path("{id}")
-    Conference findById(@PathParam("id") String id);
+    Speaker findById(@PathParam("id") Integer id);
 
     @PUT
     @Path("{id}")
-    Conference update(@PathParam("id") String id, Conference conference);
+    Speaker update(@PathParam("id") Integer id, Speaker speaker) ;
 
     @DELETE
     @Path("{id}")
-    Response remove(@PathParam("id") String id);
+    Response remove(@PathParam("id") Integer id);
 
     @POST
-    Conference insert(Conference conference);
+    Speaker insert(Speaker speaker);
+
 }

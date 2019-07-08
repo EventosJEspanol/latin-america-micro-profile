@@ -9,25 +9,24 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("sessions")
-public interface SessionResource {
+@Path("conferences")
+public interface ConferenceService {
 
     @GET
-    List<Session> findAll();
+    List<Conference> findAll();
 
     @GET
     @Path("{id}")
-    Session findById(@PathParam("id") String id);
+    Conference findById(@PathParam("id") String id);
 
     @PUT
     @Path("{id}")
-    Session update(@PathParam("id") String id, Session session);
+    Conference update(@PathParam("id") String id, Conference conference);
 
     @DELETE
     @Path("{id}")
     Response remove(@PathParam("id") String id);
 
     @POST
-    Session insert(Session session);
-
+    Conference insert(Conference conference);
 }
