@@ -14,19 +14,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jespanol.conference.conference;
+package org.jespanol.client.application;
 
-import javax.mvc.Controller;
-import javax.mvc.View;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
+import javax.ws.rs.ApplicationPath;
+import javax.ws.rs.core.Application;
 
-@Controller
-@Path("home")
-public class HomeController {
-
-    @GET
-    @View("home.html")
-    public void homePage() {
-    }
-}
+@ApplicationPath("app")
+public class MVCApplication extends Application { }

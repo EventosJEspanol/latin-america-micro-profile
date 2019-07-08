@@ -14,26 +14,37 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.jespanol.conference.conference;
+package org.jespanol.client;
 
-import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
-import javax.mvc.RedirectScoped;
+import javax.mvc.binding.ParamError;
 
-@Named("message")
-@RedirectScoped
-public class Messages implements Serializable {
+@Named("error")
+@RequestScoped
+public class Errors {
 
-    private static final long serialVersionUID = 1L;
+    private List<ParamError> errors = new ArrayList<>();
 
-    private String messageRedirect;
-
-    public String getMessageRedirect() {
-        return messageRedirect;
+    public void setErrors(List<ParamError> messages) {
+        this.errors = messages;
     }
 
-    public void setMessageRedirect(String messageRedirect) {
-        this.messageRedirect = messageRedirect;
+    public String getErrors() {
+        return errors.stream()
+                     .map(ParamError::getMessage)
+                     .collect(Collectors.joining("<br>"));
+    }
+
+    public String getMessage(String param) {
+        return errors.stream()
+                     .filter(v -> v.getParamName().equals(param))
+                     .map(ParamError::getMessage)
+                     .findFirst()
+                     .orElse("");
     }
 }
