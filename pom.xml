@@ -22,5 +22,6 @@
         <module>conference</module>
         <module>speaker</module>
         <module>session</module>
+        <module>client</module>
     </modules>
 </project>
