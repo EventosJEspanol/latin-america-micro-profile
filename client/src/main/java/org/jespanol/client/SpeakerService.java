@@ -1,33 +1,44 @@
 package org.jespanol.client;
 
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.List;
 
-@Path("speakers")
-public interface SpeakerService {
+public class SpeakerService {
 
-    @GET
-    List<Speaker> findAll();
+    public List<Speaker> findAll(){
+        List<Speaker> speakers = new ArrayList<>();
 
-    @GET
-    @Path("{id}")
-    Speaker findById(@PathParam("id") Integer id);
+        Speaker speaker = new Speaker();
+        speaker.setId(1);
+        speaker.setBio("bio");
+        speaker.setGithub("git");
+        speaker.setName("name");
+        speaker.setTwitter("otavio");
+        speakers.add(speaker);
+        return speakers;
+    }
 
-    @PUT
-    @Path("{id}")
-    Speaker update(@PathParam("id") Integer id, Speaker speaker) ;
+    public Speaker findById(Integer id){
+        Speaker speaker = new Speaker();
+        speaker.setId(1);
+        speaker.setBio("bio");
+        speaker.setGithub("git");
+        speaker.setName("name");
+        speaker.setTwitter("otavio");
+        return speaker;
+    }
 
-    @DELETE
-    @Path("{id}")
-    Response remove(@PathParam("id") Integer id);
+    public Speaker update( Integer id, Speaker speaker) {
+        return speaker;
+    }
 
-    @POST
-    Speaker insert(Speaker speaker);
+    public Response remove(Integer id) {
+        return Response.status(12).build();
+    }
+
+    public Speaker insert(Speaker speaker){
+        return speaker;
+    }
 
 }

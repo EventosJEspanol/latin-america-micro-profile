@@ -22,6 +22,7 @@ import javax.mvc.Models;
 import javax.mvc.View;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import java.util.Collections;
 
 @Controller
 @Path("speaker")
@@ -42,7 +43,7 @@ public class SpeakerController {
     @GET
     @View("speaker.html")
     public void home() {
-        this.models.put("countries", speakerService.findAll());
+        this.models.put("speakers", speakerService.findAll());
     }
 
 }

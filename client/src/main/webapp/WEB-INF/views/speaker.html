@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
-    <title>Music Store</title>
+    <title>Latin America Conf (Speaker)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
@@ -12,7 +12,7 @@
 
     <form class="form-search" method="get" action="/">
         <i class="icon-music"></i>
-        <input type="text" class="input-medium search-query" name="search" >
+        <input type="text" class="input-medium search-query" name="search">
         <button type="submit" class="btn">Search</button>
         <a href="/speaker/add" role="button" class="btn" data-toggle="modal">Add Speaker</a>
         <table class="table table-bordered">
@@ -32,8 +32,8 @@
                 <td th:text="${speaker.bio}"></td>
                 <td th:text="${speaker.twitter}"></td>
                 <td th:text="${speaker.github}"></td>
-                <td><a th:href="@{/speaker/edit/{id}(id=${speaker.id})}" ><i class="icon-edit"></i></a></td>
-                <td><a th:href="@{/speaker/delete/{id}(id=${speaker.id})}" ><i class="icon-trash"></i></a></td>
+                <td><a th:href="@{/speaker/edit/{id}(id=${speaker.id})}"><i class="icon-edit"></i></a></td>
+                <td><a th:href="@{/speaker/delete/{id}(id=${speaker.id})}"><i class="icon-trash"></i></a></td>
             </tr>
             </tbody>
             </tbody>
