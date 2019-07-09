@@ -16,6 +16,8 @@
  */
 package org.jespanol.client;
 
+import org.eclipse.microprofile.rest.client.inject.RestClient;
+
 import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
@@ -38,6 +40,7 @@ public class SpeakerController {
     private Errors erros;
 
     @Inject
+    @RestClient
     private SpeakerService speakerService;
 
     @GET

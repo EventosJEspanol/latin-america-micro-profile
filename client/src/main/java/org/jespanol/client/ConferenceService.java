@@ -14,28 +14,27 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("speakers")
+@Path("conferences")
 @RegisterRestClient
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public interface SpeakerService {
+public interface ConferenceService {
 
     @GET
-    List<Speaker> findAll();
+    List<Conference> findAll();
 
     @GET
     @Path("{id}")
-    Speaker findById(@PathParam("id") Integer id);
+    Conference findById(@PathParam("id") String id);
 
     @PUT
     @Path("{id}")
-    Speaker update(@PathParam("id") Integer id, Speaker speaker) ;
+    Conference update(@PathParam("id") String id, Conference conference);
 
     @DELETE
     @Path("{id}")
-    Response remove(@PathParam("id") Integer id);
+    Response remove(@PathParam("id") String id);
 
     @POST
-    Speaker insert(Speaker speaker);
-
+    Conference insert(Conference conference);
 }
