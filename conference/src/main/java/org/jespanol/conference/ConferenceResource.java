@@ -1,4 +1,4 @@
-package org.jespanol.conference.conference;
+package org.jespanol.conference;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -29,7 +29,7 @@ public class ConferenceResource {
     private ConferenceRepository conferenceRepository;
 
     @GET
-    public List<Conference> doGet() {
+    public List<Conference> findAll() {
         return conferenceRepository.findAll();
     }
 

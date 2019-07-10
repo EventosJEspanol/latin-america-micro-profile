@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Latin America Conf (Speaker)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Speaker</h1>
+
+    <form class="form-search" method="get" action="/">
+        <i class="icon-music"></i>
+        <input type="text" class="input-medium search-query" name="search">
+        <button type="submit" class="btn">Search</button>
+        <a href="/speaker/add" role="button" class="btn" data-toggle="modal">Add Speaker</a>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Bio</th>
+                <th>Twitter</th>
+                <th>Github</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="speaker : ${speakers}">
+                <td th:text="${speaker.name}"></td>
+                <td th:text="${speaker.bio}"></td>
+                <td th:text="${speaker.twitter}"></td>
+                <td th:text="${speaker.github}"></td>
+                <td><a th:href="@{/speaker/edit/{id}(id=${speaker.id})}"><i class="icon-edit"></i></a></td>
+                <td><a th:href="@{/speaker/delete/{id}(id=${speaker.id})}"><i class="icon-trash"></i></a></td>
+            </tr>
+            </tbody>
+            </tbody>
+        </table>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

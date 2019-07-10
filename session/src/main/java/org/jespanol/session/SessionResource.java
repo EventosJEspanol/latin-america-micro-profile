@@ -30,7 +30,7 @@ public class SessionResource {
     private SessionRepository speakerRepository;
 
     @GET
-    public List<Session> doGet() {
+    public List<Session> findAll() {
         return speakerRepository.findAll();
     }
 
