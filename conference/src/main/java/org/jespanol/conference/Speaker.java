@@ -1,22 +1,22 @@
-package org.jespanol.conference.conference;
+package org.jespanol.conference;
 
 import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Entity;
 
 @Entity
-public class Session {
+public class Speaker {
 
     @Column
-    private String id;
+    private Integer id;
 
     @Column
     private String name;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -30,8 +30,8 @@ public class Session {
 
     @Override
     public String toString() {
-        return "Session{" +
-                "id='" + id + '\'' +
+        return "Speaker{" +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
     }

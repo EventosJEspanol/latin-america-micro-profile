@@ -1,38 +1,23 @@
-package org.jespanol.conference.conference;
-
-import jakarta.nosql.mapping.Column;
-import jakarta.nosql.mapping.Convert;
-import jakarta.nosql.mapping.Entity;
-import jakarta.nosql.mapping.Id;
+package org.jespanol.client;
 
 import java.time.Year;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
 public class Conference {
 
-    @Id
-    @Convert(ObjectIdConverter.class)
     private String id;
 
-    @Column
     private String name;
 
-    @Column
     private String city;
 
-    @Column
     private String link;
 
-    @Column
     private Year year;
 
-    @Column
     private List<Speaker> speakers;
 
-    @Column
     private List<Session> sessions;
 
     public String getId() {
@@ -89,15 +74,6 @@ public class Conference {
 
     public void setSessions(List<Session> sessions) {
         this.sessions = sessions;
-    }
-
-    public void update(Conference conference) {
-        this.city = conference.city;
-        this.name = conference.name;
-        this.year = conference.year;
-        this.speakers = conference.speakers;
-        this.sessions = conference.sessions;
-        this.link = conference.link;
     }
 
     @Override

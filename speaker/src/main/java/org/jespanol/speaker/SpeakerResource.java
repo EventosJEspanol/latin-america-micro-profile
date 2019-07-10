@@ -29,7 +29,7 @@ public class SpeakerResource {
     private SpeakerService speakerService;
 
     @GET
-    public List<Speaker> doGet() {
+    public List<Speaker> findAll() {
         return speakerService.findAll();
     }
 
