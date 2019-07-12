@@ -15,6 +15,12 @@ Internet connection is required in order to download dependencies and for deploy
 * Any JDK 8 (for example: https://adoptopenjdk.net/upstream.html/[OpenJDK], https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Oracle JDK], https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html[Amazon Corretto]) 
 * https://maven.apache.org/download.cgi[Maven]
 * https://git-scm.com/downloads[Git]
+
+Once the previous tools have been installed, you need to download some docker images and maven dependencies. Execute the following commands:
+
+* docker pull elasticsearch:6.8.1
+* docker pull mongo:3.6
+* docker pull postgres:11.4
   
 
 == Databases
