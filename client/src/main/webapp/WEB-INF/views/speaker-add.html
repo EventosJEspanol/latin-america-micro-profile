@@ -25,7 +25,7 @@
         </div>
         <div class="form-group">
             <label for="speakerBio">Bio</label>
-            <textarea class="form-control" id="speakerBio" rows="3" th:value="${speaker.bio}" name="bio"></textarea>
+            <input type="text" class="form-control" th:value="${speaker.bio}" name="bio" id="speakerBio" placeholder="Enter Speaker Bio">
         </div>
         <button type="submit" class="btn">Save</button>
     </form>
