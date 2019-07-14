@@ -22,9 +22,12 @@ import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
 import javax.mvc.View;
+import javax.ws.rs.BeanParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
-import java.util.Collections;
+import javax.ws.rs.PathParam;
+import java.util.Optional;
 
 @Controller
 @Path("speaker")
@@ -48,5 +51,43 @@ public class SpeakerController {
     public void home() {
         this.models.put("speakers", speakerService.findAll());
     }
+
+
+    @Path("add")
+    @GET
+    @View("speaker-add.html")
+    public void add() {
+        this.models.put("speaker", new Speaker());
+    }
+
+    @Path("delete/{id}")
+    @GET
+    @View("speaker.html")
+    public void delete(@PathParam("id") Integer id) {
+        speakerService.remove(id);
+        this.models.put("speakers", speakerService.findAll());
+    }
+
+    @Path("edit/{id}")
+    @GET
+    @View("speaker-add.html")
+    public void edit(@PathParam("id") Integer id) {
+        final Speaker speaker = Optional.ofNullable(speakerService.findById(id))
+                .orElse(new Speaker());
+        this.models.put("speaker", speaker);
+    }
+
+    @Path("add")
+    @POST
+    @View("speaker.html")
+    public void add(@BeanParam Speaker speaker) {
+        if (speaker.getId() == null) {
+            speakerService.insert(speaker);
+        } else {
+            speakerService.update(speaker.getId(), speaker);
+        }
+        this.models.put("speakers", speakerService.findAll());
+    }
+
 
 }

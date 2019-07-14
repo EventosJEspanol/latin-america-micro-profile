@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Latin America Conf (Speaker)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Speaker</h1>
+    <form th:action="@{/speaker/add}"  method="post">
+        <input id="id" name="id" type="hidden" th:value="${speaker.id}">
+        <div class="form-group">
+            <label for="speakerNameId">Name</label>
+            <input type="text" class="form-control" th:value="${speaker.name}" name="name" id="speakerNameId" placeholder="Enter Speaker Name">
+        </div>
+        <div class="form-group">
+            <label for="speakerTwitter">Twitter</label>
+            <input type="text" class="form-control" th:value="${speaker.twitter}" name="twitter" id="speakerTwitter" placeholder="Enter Speaker Twitter">
+        </div>
+        <div class="form-group">
+            <label for="speakerGithub">Github</label>
+            <input type="text" class="form-control" th:value="${speaker.github}" name="github" id="speakerGithub" placeholder="Enter Speaker Github">
+        </div>
+        <div class="form-group">
+            <label for="speakerBio">Bio</label>
+            <input type="text" class="form-control" th:value="${speaker.bio}" name="bio" id="speakerBio" placeholder="Enter Speaker Bio">
+        </div>
+        <button type="submit" class="btn">Save</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
