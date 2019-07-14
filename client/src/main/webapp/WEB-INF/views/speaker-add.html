@@ -9,32 +9,25 @@
 <body>
 <div class="container">
     <h1>Speaker</h1>
-
-    <form class="form-search" method="get" action="/">
-        <a href="/speaker/add" role="button" class="btn" data-toggle="modal">Add Speaker</a>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Bio</th>
-                <th>Twitter</th>
-                <th>Github</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="speaker : ${speakers}">
-                <td th:text="${speaker.name}"></td>
-                <td th:text="${speaker.bio}"></td>
-                <td th:text="${speaker.twitter}"></td>
-                <td th:text="${speaker.github}"></td>
-                <td><a th:href="@{/speaker/edit/{id}(id=${speaker.id})}"><i class="icon-edit"></i></a></td>
-                <td><a th:href="@{/speaker/delete/{id}(id=${speaker.id})}"><i class="icon-trash"></i></a></td>
-            </tr>
-            </tbody>
-            </tbody>
-        </table>
+    <form th:action="@{/speaker/add}"  method="post">
+        <input id="id" name="id" type="hidden" th:value="${speaker.id}" name="id">
+        <div class="form-group">
+            <label for="speakerNameId">Name</label>
+            <input type="text" class="form-control" th:value="${speaker.name}" name="name" id="speakerNameId" placeholder="Enter Speaker Name">
+        </div>
+        <div class="form-group">
+            <label for="speakerTwitter">Twitter</label>
+            <input type="text" class="form-control" th:value="${speaker.twitter}" name="twitter" id="speakerTwitter" placeholder="Enter Speaker Twitter">
+        </div>
+        <div class="form-group">
+            <label for="speakerGithub">Github</label>
+            <input type="text" class="form-control" th:value="${speaker.github}" name="github" id="speakerGithub" placeholder="Enter Speaker Github">
+        </div>
+        <div class="form-group">
+            <label for="speakerBio">Bio</label>
+            <textarea class="form-control" id="speakerBio" rows="3" th:value="${speaker.bio}" name="bio"></textarea>
+        </div>
+        <button type="submit" class="btn">Save</button>
     </form>
 </div>
 <script src="https://code.jquery.com/jquery.js"></script>

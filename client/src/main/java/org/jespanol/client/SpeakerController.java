@@ -22,7 +22,9 @@ import javax.inject.Inject;
 import javax.mvc.Controller;
 import javax.mvc.Models;
 import javax.mvc.View;
+import javax.ws.rs.BeanParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import java.util.Collections;
 
@@ -48,5 +50,28 @@ public class SpeakerController {
     public void home() {
         this.models.put("speakers", speakerService.findAll());
     }
+
+
+    @Path("add")
+    @GET
+    @View("speaker-add.html")
+    public void add() {
+        final Speaker speaker = new Speaker();
+        speaker.setTwitter("otaviojava");
+        speaker.setName("Otavio");
+        speaker.setGithub("otaviojava");
+        speaker.setId(12);
+        speaker.setBio("Bio bio");
+         this.models.put("speaker", speaker);
+    }
+
+    @Path("add")
+    @POST
+    @View("speaker.html")
+    public void add(@BeanParam Speaker speaker) {
+        speakerService.insert(speaker);
+        this.models.put("speakers", speakerService.findAll());
+    }
+
 
 }
