@@ -10,7 +10,7 @@
 <div class="container">
     <h1>Speaker</h1>
     <form th:action="@{/speaker/add}"  method="post">
-        <input id="id" name="id" type="hidden" th:value="${speaker.id}" name="id">
+        <input id="id" name="id" type="hidden" th:value="${speaker.id}">
         <div class="form-group">
             <label for="speakerNameId">Name</label>
             <input type="text" class="form-control" th:value="${speaker.name}" name="name" id="speakerNameId" placeholder="Enter Speaker Name">
