@@ -6,6 +6,25 @@ These applications have the goals to manage the conferences into Latin America t
 * **Conference**: The conference microservices that work with lectures, it has the name, city, and year of the conference trip.
 * **Session**: The session in the conference, it has the name, title, description, and both conference and speakers information.
 
+== System Requirements
+
+Internet connection is required in order to download dependencies and for deployment to the cloud. Please install the following tools in your environment so you can follow the workshop:
+
+* Docker (https://docs.docker.com/docker-for-windows/install/[Windows] | https://docs.docker.com/docker-for-mac/install/[Mac])
+* Any Java IDE (for example: https://www.jetbrains.com/idea/download/[Intellij IDEA community], https://www.eclipse.org/downloads/packages/release/2019-06/r/eclipse-ide-enterprise-java-developers[Eclipse], https://netbeans.apache.org/download/nb110/nb110.html[Apache Netbeans])
+* Any JDK 8 (for example: https://adoptopenjdk.net/upstream.html/[OpenJDK], https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Oracle JDK], https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html[Amazon Corretto]) 
+* https://maven.apache.org/download.cgi[Maven]
+* https://git-scm.com/downloads[Git]
+  
+Once the previous tools have been installed, you need to download some docker images and maven dependencies. Execute the following commands:
+
+1. docker pull elasticsearch:6.8.1
+2. docker pull mongo:3.6
+3. docker pull postgres:11.4
+4. git clone https://github.com/EventosJEspanol/latin-america-micro-profile.git
+5. cd latin-america-micro-profile
+6. mvn clean package
+
 == Databases
 
 Each Microservices a better database to attend its particular request:
