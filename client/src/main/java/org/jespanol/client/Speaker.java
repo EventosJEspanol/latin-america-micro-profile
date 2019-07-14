@@ -1,17 +1,23 @@
 package org.jespanol.client;
 
+import javax.ws.rs.FormParam;
 import java.util.Objects;
 
 public class Speaker {
 
+    @FormParam("id")
     private Integer id;
 
+    @FormParam("name")
     private String name;
 
+    @FormParam("bio")
     private String bio;
 
+    @FormParam("twitter")
     private String twitter;
 
+    @FormParam("github")
     private String github;
 
     public Integer getId() {
