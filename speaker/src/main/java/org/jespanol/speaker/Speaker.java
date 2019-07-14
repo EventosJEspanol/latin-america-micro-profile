@@ -73,6 +73,7 @@ public class Speaker {
         this.twitter = speaker.twitter;
         this.name = speaker.name;
         this.github = speaker.github;
+        this.bio = speaker.bio;
     }
 
     @Override
