@@ -27,39 +27,37 @@ Once the previous tools have been installed, you need to download some docker im
 
 == Databases
 
-Each Microservices a better database to attend its particular request:
+Each Microservice uses an appropriate database for its particular use case:
 
-image::https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/220px-Postgresql_elephant.svg.png[PostgreSQL,align="center",width=220,height=220]
+[cols="20%,80%", grid="none", frame="none", stripes="none"]
+|===
+|image:https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/220px-Postgresql_elephant.svg.png[PostgreSQL, role="left", width="250"] 
+|PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and technical standards compliance. It is designed to handle a range of workloads, from single machines to data warehouses or Web services with many concurrent users.
 
-PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and technical standards compliance. It is designed to handle a range of workloads, from single machines to data warehouses or Web services with many concurrent users.
+|image:https://i.dlpng.com/static/png/414627_preview.png[MongoDB, role="left", width="250"]
+|MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License
 
-image::https://i.dlpng.com/static/png/414627_preview.png[MongoDB,align="center",width=300,height=300]
-
-MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License
-
-image::https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt6ae3d6980b5fd629/5bbca1d1af3a954c36f95ed3/logo-elastic.svg[Elasticsearch,align="center",width=220,height=420]
-
-Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents. Elasticsearch is developed in Java.
-
+|image:https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt6ae3d6980b5fd629/5bbca1d1af3a954c36f95ed3/logo-elastic.svg[Elasticsearch, role="left", width="250"]
+|Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents. Elasticsearch is developed in Java.
+|===
 
 == Eclipse MicroProfile implementations
 
 image::https://microprofile.io/wp-content/uploads/2018/06/MP-logo-w-tagline.png[Eclipse MicroProfile,align="center"]
 
-The microprofile.io community (http://microprofile.io/) is a semi-new community dedicated to optimizing the Enterprise Java mission for microservice based architectures. The goal is to define a microservices application platform that is portable across multiple runtimes. Currently, the main players in this group are IBM, Red Hat, Tomitribe, Payara, the London Java Community (LJC) and SouJava. Additional key industry individuals are also participating.
+The microprofile community (http://microprofile.io/) is a semi-new community dedicated to optimizing the Enterprise Java mission for microservice based architectures. The goal is to define a microservices application platform that is portable across multiple runtimes. Currently, the main players in this group are IBM, Red Hat, Tomitribe, Payara, the London Java Community (LJC) and SouJava. Additional key industry individuals are also participating.
 
+[cols="20%,80%", grid="none", frame="none", stripes="none"]
+|===
+|image:https://developers.redhat.com/blog/wp-content/uploads/2018/10/thorntail_vertical_rgb_600px_default.png[Thorntail,role="left", width="250"]
+|Thorntail offers an innovative approach to packaging and running Java EE applications by packaging them with just enough of the server runtime to "java -jar" your application. It's MicroProfile compatible, too. And, it's all much, much cooler than that: https://thorntail.io/
 
-image::https://developers.redhat.com/blog/wp-content/uploads/2018/10/thorntail_vertical_rgb_600px_default.png[Thorntail,align="center"]
-Thorntail offers an innovative approach to packaging and running Java EE applications by packaging them with just enough of the server runtime to "java -jar" your application. It's MicroProfile compatible, too. And, it's all much, much cooler than that: https://thorntail.io/
+|image:https://www.payara.fish/payara-site/media/gb/micro-logo-for-blue-fade-RGB.png[Payara,role="left", width="250"]
+|Payara Micro is the open source, lightweight middleware platform of choice for containerized Java EE (Jakarta EE) microservices deployments. Less than 70MB in size, Payara Micro requires no installation or configuration and no need for code rewrites – so you can build and deploy a fully working app within minutes: https://www.payara.fish/software/payara-server/payara-micro/
 
-
-image::https://www.payara.fish/payara-site/media/gb/micro-logo-for-blue-fade-RGB.png[Payara,align="center"]
-Payara Micro is the open source, lightweight middleware platform of choice for containerized Java EE (Jakarta EE) microservices deployments.  Less than 70MB in size, Payara Micro requires no installation or configuration and no need for code rewrites  – so you can build and deploy a fully working app within minutes: https://www.payara.fish/software/payara-server/payara-micro/
-
-image::https://avatars0.githubusercontent.com/u/6859905?s=280&v=4[KumuluzEE,align="center"]
-
-Develop microservices with Java EE / Jakarta EE technologies and extend them with Node.js, Go and other languages. Migrate existing Java EE applications to microservices and cloud-native architecture: https://ee.kumuluz.com/
-
+|image:https://avatars0.githubusercontent.com/u/6859905?s=280&v=4[KumuluzEE,role="left", width="250"]
+|Develop microservices with Java EE / Jakarta EE technologies and extend them with Node.js, Go and other languages. Migrate existing Java EE applications to microservices and cloud-native architecture: https://ee.kumuluz.com/
+|===
 
 === Local Configuration
 
