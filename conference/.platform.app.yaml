@@ -14,7 +14,8 @@ disk: 1024
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
     build:  |
-      mvn clean install -DskipTests -f ../pom.xml
+      wget -P parent/pom.xml https://raw.githubusercontent.com/EventosJEspanol/latin-america-micro-profile/master/pom.xml
+      mvn clean install -N -f parent/pom.xml
       mvn -U -DskipTests clean package payara-micro:bundle
 
 
