@@ -4,7 +4,7 @@
 # See https://docs.platform.sh/user_guide/reference/platform-app-yaml.html
 
 # The name of this app. Must be unique within a project.
-name: session
+name: client
 
 # The runtime the application uses.
 type: "java:8"
@@ -13,24 +13,29 @@ disk: 1024
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
-    build: mvn -DskipTests -U clean package kumuluzee:repackage
+    build: mvn -Dhttp.port=8888 -DskipTests clean install tomee:exec
 
 mounts:
+
+    '/.distribution':
+        source: local
+        source_path: tomee_source
+
     '/app':
         source: local
-        source_path: app_source
+        source_path: tomee_source
 
 # The relationships of the application with services or other applications.
 #
 # The left-hand side is the name of the relationship as it will be exposed
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
-relationships:
-  elasticsearch: 'elasticsearch:elasticsearch'
+#relationships:
+#    database: "database:mysql"
 
 # The configuration of app when it is exposed to the web.
 web:
     commands:
         start: |
-           mv target/session.jar app/session.jar
-           java -jar -Xmx1024m -Dkumuluzee.server.http.port=$PORT app/session.jar
+          mv target/ROOT-exec.jar app/ROOT-exec.jar
+          java -Xmx1024m -jar app/ROOT-exec.jar
