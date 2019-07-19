@@ -13,7 +13,9 @@ disk: 1024
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
-    build: mvn -DskipTests -U clean package kumuluzee:repackage
+    build: |
+      mvn clean install -DskipTests -f ../pom.xml
+      mvn -DskipTests -U clean package kumuluzee:repackage
 
 mounts:
     '/app':
