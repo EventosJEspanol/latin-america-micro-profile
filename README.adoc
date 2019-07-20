@@ -88,7 +88,7 @@ Platform.sh es la nueva generación de PaaS, que permite que los servicios sean 
 
 * link:.platform/routes.yaml[`.platform/routes.yaml`]: Platform.sh nos permite definir https://docs.platform.sh/configuration/routes.html[rutas].
 * link:.platform/services.yaml[`.platform/services.yaml`]:  Platform.sh nos permite definir y configurar la topología y los https://docs.platform.sh/configuration/services.html[servicios que deseamos usar en los proyectos].
-* link:.platform.app.yaml[`.platform.app.yaml`]: Controlamos la aplicación y la forma en la que se construye y despliega en Platform.sh https://docs.platform.sh/configuration/app-containers.html[via un único archivo de configuración].
+* Archivos `.platform.app.yaml`: Controlamos la aplicación y la forma en la que se construye y despliega en Platform.sh https://docs.platform.sh/configuration/app-containers.html[via un único archivo de configuración].
 
 ==== Referencias:
 
