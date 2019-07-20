@@ -25,7 +25,11 @@
         </div>
         <div class="form-group">
             <label for="sessionConference">Conference</label>
-            <input type="text" class="form-control" th:value="${presentation.conference}" name="conference" id="sessionConference" placeholder="Enter Session Conference">
+            <select class="form-control" id="sessionConference" th:value="${presentation.conference}" name="conference">
+                <tr th:each="conference : ${conferences}">
+                    <option th:value="${conference.id}" th:text="${conference.name}" th:selected="${presentation.conference==conferences.id}"></option>
+                </tr>
+            </select>
         </div>
         <div class="form-group">
             <label for="sessionSpeaker">Speaker</label>
