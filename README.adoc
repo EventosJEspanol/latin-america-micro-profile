@@ -1,22 +1,22 @@
-= Latin America Trip
+= Tour Latinoamericano
 
-These applications have the goals to manage the conferences into Latin America trip. We have three microservices:
+Esta aplicación tiene como objetivo gestionar conferencias de un tour latinoamericano. Contamos con tres (3) microservicios:
 
-* **Speaker**: The speaker microservices that handle with the name, bio, and social media links of a speaker.
-* **Conference**: The conference microservices that work with lectures, it has the name, city, and year of the conference trip.
-* **Session**: The session in the conference, it has the name, title, description, and both conference and speakers information.
+* **Speaker**: Este microservicio gestionará la información de un ponente: nombre, biografía y enlaces a redes.
+* **Conference**: Este microservicio gestionará las conferencias de cada una de las ciudades del tour: nombre, ciudad y año.
+* **Session**: Este microservicio gestionará las sesiones dentro de una conferencia: nombre, título, descripción e información del ponente y la conferencia a la que pertenece.
 
-== System Requirements
+== Requerimientos de sistema
 
-Internet connection is required in order to download dependencies and for deployment to the cloud. Please install the following tools in your environment so you can follow the workshop:
+Conexión a Internet es requerida para poder descargar dependencias de cada uno de los microservicios y para su posterior despliegue en la nube. Por favor instalar las siguientes herramientas para poder realizar el taller:
 
-* Docker (https://docs.docker.com/docker-for-windows/install/[Windows] | https://docs.docker.com/docker-for-mac/install/[Mac])
-* Any Java IDE (for example: https://www.jetbrains.com/idea/download/[Intellij IDEA community], https://www.eclipse.org/downloads/packages/release/2019-06/r/eclipse-ide-enterprise-java-developers[Eclipse], https://netbeans.apache.org/download/nb110/nb110.html[Apache Netbeans])
-* Any JDK 8 (for example: https://adoptopenjdk.net/upstream.html/[OpenJDK], https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Oracle JDK], https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html[Amazon Corretto]) 
+* Docker (https://docs.docker.com/docker-for-windows/install/[Windows], https://docs.docker.com/docker-for-mac/install/[Mac])
+* Algún IDE Java (https://www.jetbrains.com/idea/download/[Intellij IDEA community], https://www.eclipse.org/downloads/packages/release/2019-06/r/eclipse-ide-enterprise-java-developers[Eclipse], https://netbeans.apache.org/download/nb110/nb110.html[Apache Netbeans])
+* Algún JDK 8 (for example: https://adoptopenjdk.net/upstream.html/[OpenJDK], https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html[Oracle JDK], https://docs.aws.amazon.com/corretto/latest/corretto-8-ug/downloads-list.html[Amazon Corretto])
 * https://maven.apache.org/download.cgi[Maven]
 * https://git-scm.com/downloads[Git]
-  
-Once the previous tools have been installed, you need to download some docker images and maven dependencies. Execute the following commands:
+ 
+Una vez se han instalado las herramientas, es necesario descargar algunas imagenes de Docker y dependencias de Maven. Para ello ejecutamos los siguientes comandos:
 
 1. docker pull elasticsearch:6.8.1
 2. docker pull mongo:3.6
@@ -25,49 +25,49 @@ Once the previous tools have been installed, you need to download some docker im
 5. cd latin-america-micro-profile
 6. mvn clean package
 
-== Databases
+== Bases de datos
 
-Each Microservice uses an appropriate database for its particular use case:
+Cada microservicio usa una motor de base de datos apropiado para su caso de uso:
 
 [cols="20%,80%", grid="none", frame="none", stripes="none"]
 |===
-|image:https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/220px-Postgresql_elephant.svg.png[PostgreSQL, role="left", width="250"] 
-|PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and technical standards compliance. It is designed to handle a range of workloads, from single machines to data warehouses or Web services with many concurrent users.
+|image:https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/220px-Postgresql_elephant.svg.png[PostgreSQL, role="left", width="250"]
+|PostgreSQL, también conocido como Postgres, es una base de datos relacional gratuita de código abierto que hace énfasis en la extensibilidad y el cumplimiento de estándares. Está diseñada para soportar diferentes cargas de trabajo, desde una sola máquina hasta grandes almacenes de datos o servicios web con muchos usuarios concurrentes.
 
 |image:https://i.dlpng.com/static/png/414627_preview.png[MongoDB, role="left", width="250"]
-|MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with schema. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License
+|MongoDB es una base de datos multiplataforma orientada a Documentos. Clasificada como una base de datos NoSQL, MongoDB usa documentos estilo JSON con esquemas. MongoDB es desarrollada por MongoDB Inc. y licenciada bajo la licencia https://www.mongodb.com/licensing/server-side-public-license/faq[Server Side Public License].
 
 |image:https://static-www.elastic.co/v3/assets/bltefdd0b53724fa2ce/blt6ae3d6980b5fd629/5bbca1d1af3a954c36f95ed3/logo-elastic.svg[Elasticsearch, role="left", width="250"]
-|Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents. Elasticsearch is developed in Java.
+|Elasticsearch es un motor de búsqueda basado en la https://es.wikipedia.org/wiki/Lucene[API Lucene]. Provee un motor de búsqueda de texto completo, distribuido y con capacidad de multitenencia con una interfaz web y documentos JSON sin esquema. Elasticsearch es desarrollado en Java.
 |===
 
-== Eclipse MicroProfile implementations
+== Implementaciones de Eclipse MicroProfile
 
 image::https://microprofile.io/wp-content/uploads/2018/06/MP-logo-w-tagline.png[Eclipse MicroProfile,align="center"]
 
-The microprofile community (http://microprofile.io/) is a semi-new community dedicated to optimizing the Enterprise Java mission for microservice based architectures. The goal is to define a microservices application platform that is portable across multiple runtimes. Currently, the main players in this group are IBM, Red Hat, Tomitribe, Payara, the London Java Community (LJC) and SouJava. Additional key industry individuals are also participating.
+La comunidad MicroProfile (http://microprofile.io/) es una comunidad relativamente nueva dedicada a optimizar Java empresarial para arquitecturas basadas en microservicios. Su objetivo es definir una plataforma para microservicios que sea portable. Actualmente, los principales miembros de este grupo son IBM, Red Hat, Tomitribe, Payara, la comunidad Java de Londres (LJC) y SouJava. Adicionalmente, personas reconocidas en la industria también están participando.
 
 [cols="20%,80%", grid="none", frame="none", stripes="none"]
 |===
 |image:https://developers.redhat.com/blog/wp-content/uploads/2018/10/thorntail_vertical_rgb_600px_default.png[Thorntail,role="left", width="250"]
-|Thorntail offers an innovative approach to packaging and running Java EE applications by packaging them with just enough of the server runtime to "java -jar" your application. It's MicroProfile compatible, too. And, it's all much, much cooler than that: https://thorntail.io/
+|Thorntail ofrece un enfoque innovador al empaquetar y ejecutar aplicaciones Java EE con solo lo necesario del servidor para luego ejecutarlas con un "java -jar". También es compatible con MicroProfile: https://thorntail.io/
 
 |image:https://www.payara.fish/payara-site/media/gb/micro-logo-for-blue-fade-RGB.png[Payara,role="left", width="250"]
-|Payara Micro is the open source, lightweight middleware platform of choice for containerized Java EE (Jakarta EE) microservices deployments. Less than 70MB in size, Payara Micro requires no installation or configuration and no need for code rewrites – so you can build and deploy a fully working app within minutes: https://www.payara.fish/software/payara-server/payara-micro/
+|PayaraMicro la plataforma de código abierto y ligera preferida para desplegar microservicios Java EE (Jakarta EE) contenerizados. Con menos de 70MB, PayaraMicro no requiere instalación ni configuración, así podemos construir y desplegar aplicaciones completamente funcionales en minutos: https://www.payara.fish/software/payara-server/payara-micro/
 
 |image:https://avatars0.githubusercontent.com/u/6859905?s=280&v=4[KumuluzEE,role="left", width="250"]
-|Develop microservices with Java EE / Jakarta EE technologies and extend them with Node.js, Go and other languages. Migrate existing Java EE applications to microservices and cloud-native architecture: https://ee.kumuluz.com/
+|Con KumuluzEE podemos desarrollar microservicios con tecnología Java EE (Jakarta EE) y complementarlos con Node.js, Go y otros lenguajes. Podemos migrar aplicaciones Java EE existentes a microservicios y arquitectura nube-nativa (cloud-native): https://ee.kumuluz.com/
 |===
 
-=== Run Applications
+=== Ejecutar los microservicios
 
-Firs we need to run the database services. We'll use docker for that:
+Primero debemos ejecutar los servicios de base de datos. Para ello usaremos Docker:
 
 1. `docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.8.1`
 2. `docker run -d --name mongodb-instance -p 27017:27017 mongo`
 3. `docker run -d --name postgresql -p 5432:5432  -e POSTGRES_PASSWORD=password -e POSTGRES_DB=speaker postgres`
 
-When the services are up, next step is to run the applications:
+Cuando los servicios estén en línea, el siguiente paso es ejecutar los microservicios:
 
 * Speaker (thorntail):
   1. `mvn -DskipTests clean package thorntail:package`
@@ -80,17 +80,18 @@ When the services are up, next step is to run the applications:
   2. `java -jar -Xmx512m target/conference-microbundle.jar --port $PORT`
 
 
-=== Cloud Configuration
+=== Configuración para la nube
 
 
-Platform.sh is the newest generation of PaaS, which allows the services to manage by the platform itself using infrastructure by code.
+Platform.sh es la nueva generación de PaaS, que permite que los servicios sean gestionados por la misma plataforma usando infraestructura como código.
 
 
-* [`.platform/routes.yaml`](.platform/routes.yaml): Platform.sh allows you to define the [routes](https://docs.platform.sh/configuration/routes.html).
-* [`.platform/services.yaml`](.platform/services.yaml):  Platform.sh allows you to completely define and configure the topology and [services you want to use on your project](https://docs.platform.sh/configuration/services.html).
-* [`.platform.app.yaml`](.platform.app.yaml): You control your application and the way it will be built and deployed on Platform.sh [via a single configuration file](https://docs.platform.sh/configuration/app-containers.html).
+* link:.platform/routes.yaml[`.platform/routes.yaml`]: Platform.sh nos permite definir https://docs.platform.sh/configuration/routes.html[rutas].
+* link:.platform/services.yaml[`.platform/services.yaml`]:  Platform.sh nos permite definir y configurar la topología y los https://docs.platform.sh/configuration/services.html[servicios que deseamos usar en los proyectos].
+* link:.platform.app.yaml[`.platform.app.yaml`]: Controlamos la aplicación y la forma en la que se construye y despliega en Platform.sh https://docs.platform.sh/configuration/app-containers.html[via un único archivo de configuración].
 
-==== References:
+==== Referencias:
 
 * https://platform.sh/blog/how-platform-paas-works/
 * https://platform.sh/stacks/java/
+
