@@ -13,7 +13,10 @@ disk: 1024
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
-    build:  mvn -U -DskipTests clean package thorntail:package
+    build:  |
+      wget -P parent/pom.xml https://raw.githubusercontent.com/EventosJEspanol/latin-america-micro-profile/master/pom.xml
+      mvn clean install -U -N -f parent/pom.xml
+      mvn -U -DskipTests clean package thorntail:package
 
 # The relationships of the application with services or other applications.
 #
@@ -26,5 +29,5 @@ relationships:
 # The configuration of app when it is exposed to the web.
 web:
     commands:
-        start: java -jar -Xmx512m -Dswarm.http.port=$PORT -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true target/speaker-thorntail.jar
+        start: java -jar -Xmx1024m -Dswarm.http.port=$PORT -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true target/speaker-thorntail.jar
 

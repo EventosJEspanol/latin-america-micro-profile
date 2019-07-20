@@ -1,20 +1,27 @@
 package org.jespanol.client;
 
+import javax.ws.rs.FormParam;
 import java.util.Objects;
 
 public class Session {
 
+    @FormParam("id")
     private String id;
 
+    @FormParam("name")
     private String name;
 
+    @FormParam("title")
     private String title;
 
+    @FormParam("description")
     private String description;
 
+    @FormParam("conference")
     private String conference;
 
-    private String speaker;
+    @FormParam("speaker")
+    private Integer speaker;
 
 
     public String getId() {
@@ -57,11 +64,11 @@ public class Session {
         this.conference = conference;
     }
 
-    public String getSpeaker() {
+    public Integer getSpeaker() {
         return speaker;
     }
 
-    public void setSpeaker(String speaker) {
+    public void setSpeaker(Integer speaker) {
         this.speaker = speaker;
     }
 

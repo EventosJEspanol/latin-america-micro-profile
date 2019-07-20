@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Latin America Conf (Session)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Session</h1>
+
+    <form class="form-search" method="get" action="/">
+        <a href="/session/add" role="button" class="btn" data-toggle="modal">Add Session</a>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="presentation : ${presentations}" >
+                <td th:text="${presentation.name}"></td>
+                <td th:text="${presentation.title}"></td>
+                <td th:text="${presentation.description}"></td>
+                <td><a th:href="@{/session/edit/{id}(id=${presentation.id})}"><i class="icon-edit"></i></a></td>
+                <td><a th:href="@{/session/delete/{id}(id=${presentation.id})}"><i class="icon-trash"></i></a></td>
+            </tr>
+            </tbody>
+            </tbody>
+        </table>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>

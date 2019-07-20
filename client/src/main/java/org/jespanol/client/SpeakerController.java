@@ -37,12 +37,6 @@ public class SpeakerController {
     private Models models;
 
     @Inject
-    private Messages message;
-
-    @Inject
-    private Errors erros;
-
-    @Inject
     @RestClient
     private SpeakerService speakerService;
 

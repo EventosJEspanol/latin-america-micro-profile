@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Latin America Conf (Session)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Session</h1>
+    <form th:action="@{/session/add}"  method="post">
+        <input id="id" name="id" type="hidden" th:value="${presentation.id}">
+        <div class="form-group">
+            <label for="sessionNameId">Name</label>
+            <input type="text" class="form-control" th:value="${presentation.name}" name="name" id="sessionNameId" placeholder="Enter Session Name">
+        </div>
+        <div class="form-group">
+            <label for="sessionTitle">Title</label>
+            <input type="text" class="form-control" th:value="${presentation.title}" name="title" id="sessionTitle" placeholder="Enter Session Title">
+        </div>
+        <div class="form-group">
+            <label for="sessionDescription">Description</label>
+            <input type="text" class="form-control" th:value="${presentation.description}" name="description" id="sessionDescription" placeholder="Enter Session Description">
+        </div>
+        <div class="form-group">
+            <label for="sessionConference">Conference</label>
+            <select class="form-control" id="sessionConference" th:value="${presentation.conference}" name="conference">
+                <tr th:each="conference : ${conferences}">
+                    <option th:value="${conference.id}" th:text="${conference.name}" th:selected="${presentation.conference==conferences.id}"></option>
+                </tr>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="sessionSpeaker">Speaker</label>
+            <select class="form-control" id="sessionSpeaker" th:value="${presentation.speaker}" name="speaker" required>
+                <tr th:each="speaker : ${speakers}">
+                    <option th:value="${speaker.id}" th:text="${speaker.name}" th:selected="${presentation.speaker==speaker.id}"></option>
+                </tr>
+            </select>
+        </div>
+        <button type="submit" class="btn">Save</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
