@@ -29,9 +29,9 @@
         </div>
         <div class="form-group">
             <label for="sessionSpeaker">Speaker</label>
-            <select class="form-control" id="sessionSpeaker" th:value="${presentation.speaker}" name="speaker">
+            <select class="form-control" id="sessionSpeaker" th:value="${presentation.speaker}" name="speaker" required>
                 <tr th:each="speaker : ${speakers}">
-                    <option th:value="${speaker.id}" th:text="${speaker.name}"></option>
+                    <option th:value="${speaker.id}" th:text="${speaker.name}" th:selected="${presentation.speaker==speaker.id}"></option>
                 </tr>
             </select>
         </div>
