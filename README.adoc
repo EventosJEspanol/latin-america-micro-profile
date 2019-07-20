@@ -59,28 +59,23 @@ The microprofile community (http://microprofile.io/) is a semi-new community ded
 |Develop microservices with Java EE / Jakarta EE technologies and extend them with Node.js, Go and other languages. Migrate existing Java EE applications to microservices and cloud-native architecture: https://ee.kumuluz.com/
 |===
 
-=== Local Configuration
-
-image::https://www.docker.com/sites/default/files/horizontal_large.png[Docker,align="center"]
-
-1. Install docker: https://www.docker.com/
-2. Run docker command
-3. `docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.8.1`
-4. `docker run -d --name mongodb-instance -p 27017:27017 mongo`
-5. `docker run -d --name postgresql -p 5432:5432  -e POSTGRES_PASSWORD=password -e POSTGRES_DB=speaker postgres`
-
-
 === Run Applications
 
-The services are up; the next step is to run the applications:
+Firs we need to run the database services. We'll use docker for that:
 
-* speaker (thorntail):
+1. `docker run -d --name elasticsearch -p 9200:9200 -p 9300:9300 -e "discovery.type=single-node" elasticsearch:6.8.1`
+2. `docker run -d --name mongodb-instance -p 27017:27017 mongo`
+3. `docker run -d --name postgresql -p 5432:5432  -e POSTGRES_PASSWORD=password -e POSTGRES_DB=speaker postgres`
+
+When the services are up, next step is to run the applications:
+
+* Speaker (thorntail):
   1. `mvn -DskipTests clean package thorntail:package`
   2. `java -jar -Xmx512m -Dswarm.http.port=$PORT target/speaker-thorntail.jar`
-* session (kumuluzee):
+* Session (kumuluzee):
   1. `mvn -DskipTests clean package kumuluzee:repackage`
   2. `java -jar -Xmx512m -Dkumuluzee.server.http.port=$PORT target/session.jar`
-* conference (Payara):
+* Conference (Payara):
   1. `mvn -DskipTests clean package payara-micro:bundle`
   2. `java -jar -Xmx512m target/conference-microbundle.jar --port $PORT`
 
