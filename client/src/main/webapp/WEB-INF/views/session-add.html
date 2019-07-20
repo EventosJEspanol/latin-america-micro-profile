@@ -2,30 +2,38 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
-    <title>Latin America Conf (Speaker)</title>
+    <title>Latin America Conf (Session)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-    <h1>Speaker</h1>
-    <form th:action="@{/speaker/add}"  method="post">
-        <input id="id" name="id" type="hidden" th:value="${speaker.id}">
+    <h1>Session</h1>
+    <form th:action="@{/session/add}"  method="post">
+        <input id="id" name="id" type="hidden" th:value="${presentation.id}">
         <div class="form-group">
-            <label for="speakerNameId">Name</label>
-            <input type="text" class="form-control" th:value="${speaker.name}" name="name" id="speakerNameId" placeholder="Enter Speaker Name">
+            <label for="sessionNameId">Name</label>
+            <input type="text" class="form-control" th:value="${presentation.name}" name="name" id="sessionNameId" placeholder="Enter Session Name">
         </div>
         <div class="form-group">
-            <label for="speakerTwitter">Twitter</label>
-            <input type="text" class="form-control" th:value="${speaker.twitter}" name="twitter" id="speakerTwitter" placeholder="Enter Speaker Twitter">
+            <label for="sessionTitle">Title</label>
+            <input type="text" class="form-control" th:value="${presentation.title}" name="title" id="sessionTitle" placeholder="Enter Session Title">
         </div>
         <div class="form-group">
-            <label for="speakerGithub">Github</label>
-            <input type="text" class="form-control" th:value="${speaker.github}" name="github" id="speakerGithub" placeholder="Enter Speaker Github">
+            <label for="sessionDescription">Description</label>
+            <input type="text" class="form-control" th:value="${presentation.description}" name="description" id="sessionDescription" placeholder="Enter Session Description">
         </div>
         <div class="form-group">
-            <label for="speakerBio">Bio</label>
-            <input type="text" class="form-control" th:value="${speaker.bio}" name="bio" id="speakerBio" placeholder="Enter Speaker Bio">
+            <label for="sessionConference">Conference</label>
+            <input type="text" class="form-control" th:value="${presentation.conference}" name="conference" id="sessionConference" placeholder="Enter Session Conference">
+        </div>
+        <div class="form-group">
+            <label for="sessionSpeaker">Speaker</label>
+            <select class="form-control" id="sessionSpeaker" th:value="${presentation.speaker}" name="speaker">
+                <tr th:each="speaker : ${speakers}">
+                    <option th:value="${speaker.id}" th:text="${speaker.name}"></option>
+                </tr>
+            </select>
         </div>
         <button type="submit" class="btn">Save</button>
     </form>
