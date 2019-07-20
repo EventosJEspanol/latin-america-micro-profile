@@ -25,7 +25,7 @@ public class Session {
     private String conference;
 
     @Column
-    private String speaker;
+    private Integer speaker;
 
 
     public String getId() {
@@ -68,11 +68,11 @@ public class Session {
         this.conference = conference;
     }
 
-    public String getSpeaker() {
+    public Integer getSpeaker() {
         return speaker;
     }
 
-    public void setSpeaker(String speaker) {
+    public void setSpeaker(Integer speaker) {
         this.speaker = speaker;
     }
 
