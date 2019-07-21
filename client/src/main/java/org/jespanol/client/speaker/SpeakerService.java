@@ -1,4 +1,4 @@
-package org.jespanol.client;
+package org.jespanol.client.speaker;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
@@ -14,27 +14,28 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
-@Path("conferences")
+@Path("speakers")
 @RegisterRestClient
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public interface ConferenceService {
+public interface SpeakerService {
 
     @GET
-    List<Conference> findAll();
+    List<Speaker> findAll();
 
     @GET
     @Path("{id}")
-    Conference findById(@PathParam("id") String id);
+    Speaker findById(@PathParam("id") Integer id);
 
     @PUT
     @Path("{id}")
-    Conference update(@PathParam("id") String id, Conference conference);
+    Speaker update(@PathParam("id") Integer id, Speaker speaker) ;
 
     @DELETE
     @Path("{id}")
-    Response remove(@PathParam("id") String id);
+    Response remove(@PathParam("id") Integer id);
 
     @POST
-    Conference insert(Conference conference);
+    Speaker insert(Speaker speaker);
+
 }

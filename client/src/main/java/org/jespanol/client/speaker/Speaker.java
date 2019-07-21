@@ -1,4 +1,4 @@
-package org.jespanol.client;
+package org.jespanol.client.speaker;
 
 import javax.ws.rs.FormParam;
 import java.util.Objects;

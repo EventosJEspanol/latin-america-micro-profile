@@ -1,6 +1,8 @@
-package org.jespanol.client;
+package org.jespanol.client.session;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.jespanol.client.conference.ConferenceService;
+import org.jespanol.client.speaker.SpeakerService;
 import org.thymeleaf.util.StringUtils;
 
 import javax.inject.Inject;

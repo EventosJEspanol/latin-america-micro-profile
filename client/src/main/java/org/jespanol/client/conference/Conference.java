@@ -1,4 +1,7 @@
-package org.jespanol.client;
+package org.jespanol.client.conference;
+
+import org.jespanol.client.session.Session;
+import org.jespanol.client.speaker.Speaker;
 
 import java.time.Year;
 import java.util.List;
