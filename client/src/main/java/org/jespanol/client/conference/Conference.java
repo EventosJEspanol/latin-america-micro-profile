@@ -23,11 +23,7 @@ public class Conference {
     private String link;
 
     @FormParam("year")
-    private Year year;
-
-    private List<Speaker> speakers;
-
-    private List<Session> sessions;
+    private Integer year;
 
     public String getId() {
         return id;
@@ -61,28 +57,12 @@ public class Conference {
         this.link = link;
     }
 
-    public Year getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(Year year) {
+    public void setYear(Integer year) {
         this.year = year;
-    }
-
-    public List<Speaker> getSpeakers() {
-        return speakers;
-    }
-
-    public void setSpeakers(List<Speaker> speakers) {
-        this.speakers = speakers;
-    }
-
-    public List<Session> getSessions() {
-        return sessions;
-    }
-
-    public void setSessions(List<Session> sessions) {
-        this.sessions = sessions;
     }
 
     @Override
@@ -109,9 +89,6 @@ public class Conference {
                 ", name='" + name + '\'' +
                 ", city='" + city + '\'' +
                 ", link='" + link + '\'' +
-                ", year=" + year +
-                ", speakers=" + speakers +
-                ", sessions=" + sessions +
                 '}';
     }
 }

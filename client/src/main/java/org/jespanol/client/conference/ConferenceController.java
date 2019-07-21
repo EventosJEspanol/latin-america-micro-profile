@@ -81,5 +81,4 @@ public class ConferenceController {
         }
         this.models.put("conferences", conferenceService.findAll());
     }
-
 }

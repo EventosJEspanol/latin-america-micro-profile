@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Latin America Conf (Session)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Conference</h1>
+    <form th:action="@{/conference/add}"  method="post">
+        <input id="id" name="id" type="hidden" th:value="${conference.id}">
+        <div class="form-group">
+            <label for="conferenceName">Name</label>
+            <input type="text" class="form-control" th:value="${conference.name}" name="name" id="conferenceName" placeholder="Enter Session Name">
+        </div>
+        <div class="form-group">
+            <label for="conferenceCity">City</label>
+            <input type="text" class="form-control" th:value="${conference.city}" name="city" id="conferenceCity" placeholder="Enter Conference City">
+        </div>
+        <div class="form-group">
+            <label for="conferenceLink">Link</label>
+            <input type="text" class="form-control" th:value="${conference.link}" name="link" id="conferenceLink" placeholder="Enter Conference Link">
+        </div>
+        <button type="submit" class="btn">Save</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
