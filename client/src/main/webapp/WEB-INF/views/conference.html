@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Latin America Conf (Session)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Conference</h1>
+
+    <form class="form-search" method="get" action="/">
+        <a href="/conference/add">Add Conference<i class="icon-plus"></i></a>
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>City</th>
+                <th>Link</th>
+                <th>Year</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="conference : ${conferences}" >
+                <td th:text="${conference.name}"></td>
+                <td th:text="${conference.city}"></td>
+                <td th:text="${conference.link}"></td>
+                <td th:text="${conference.year}"></td>
+                <td><a th:href="@{/conference/edit/{id}(id=${conference.id})}"><i class="icon-edit"></i></a></td>
+                <td><a th:href="@{/conference/delete/{id}(id=${conference.id})}"><i class="icon-trash"></i></a></td>
+            </tr>
+            </tbody>
+            </tbody>
+        </table>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+</body>
+</html>
