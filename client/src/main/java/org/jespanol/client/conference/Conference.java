@@ -3,20 +3,26 @@ package org.jespanol.client.conference;
 import org.jespanol.client.session.Session;
 import org.jespanol.client.speaker.Speaker;
 
+import javax.ws.rs.FormParam;
 import java.time.Year;
 import java.util.List;
 import java.util.Objects;
 
 public class Conference {
 
+    @FormParam("id")
     private String id;
 
+    @FormParam("name")
     private String name;
 
+    @FormParam("city")
     private String city;
 
+    @FormParam("link")
     private String link;
 
+    @FormParam("year")
     private Year year;
 
     private List<Speaker> speakers;
