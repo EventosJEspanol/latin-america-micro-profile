@@ -1,11 +1,9 @@
 package org.jespanol.client.conference;
 
-import org.jespanol.client.session.Session;
-import org.jespanol.client.speaker.Speaker;
 import org.thymeleaf.util.StringUtils;
 
 import javax.ws.rs.FormParam;
-import java.time.Year;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -25,6 +23,12 @@ public class Conference {
 
     @FormParam("year")
     private Integer year;
+
+    @FormParam("speakers")
+    private List<Integer> speakers = new ArrayList<>();
+
+    @FormParam("presentations")
+    private List<String> sessions = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -64,6 +68,22 @@ public class Conference {
 
     public void setYear(Integer year) {
         this.year = year;
+    }
+
+    public List<Integer> getSpeakers() {
+        return speakers;
+    }
+
+    public void setSpeakers(List<Integer> speakers) {
+        this.speakers = speakers;
+    }
+
+    public List<String> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(List<String> sessions) {
+        this.sessions = sessions;
     }
 
     @Override
