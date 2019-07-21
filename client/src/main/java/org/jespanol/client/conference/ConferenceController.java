@@ -55,7 +55,7 @@ public class ConferenceController {
     @GET
     @View("conference.html")
     public void delete(@PathParam("id") String id) {
-        sessionService.remove(id);
+        conferenceService.remove(id);
         this.models.put("conferences", conferenceService.findAll());
     }
 
@@ -74,7 +74,7 @@ public class ConferenceController {
     @POST
     @View("conference.html")
     public void add(@BeanParam Conference conference) {
-        if (StringUtils.isEmpty(conference.getId())) {
+        if (conference.isIdEmpty()) {
             conferenceService.insert(conference);
         } else {
             conferenceService.update(conference.getId(), conference);

@@ -21,7 +21,11 @@
         </div>
         <div class="form-group">
             <label for="conferenceLink">Link</label>
-            <input type="text" class="form-control" th:value="${conference.link}" name="link" id="conferenceLink" placeholder="Enter Conference Link">
+            <input type="url" class="form-control" th:value="${conference.link}" name="link" id="conferenceLink" placeholder="Enter Conference Link">
+        </div>
+        <div class="form-group">
+            <label for="conferenceYear">Year</label>
+            <input type="number" class="form-control" th:value="${conference.year}" name="year" id="conferenceYear" placeholder="Enter Conference Year">
         </div>
         <button type="submit" class="btn">Save</button>
     </form>

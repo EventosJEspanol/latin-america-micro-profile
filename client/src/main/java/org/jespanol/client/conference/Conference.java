@@ -2,6 +2,7 @@ package org.jespanol.client.conference;
 
 import org.jespanol.client.session.Session;
 import org.jespanol.client.speaker.Speaker;
+import org.thymeleaf.util.StringUtils;
 
 import javax.ws.rs.FormParam;
 import java.time.Year;
@@ -89,6 +90,15 @@ public class Conference {
                 ", name='" + name + '\'' +
                 ", city='" + city + '\'' +
                 ", link='" + link + '\'' +
+                ", year=" + year +
                 '}';
+    }
+
+    public boolean isIdEmpty() {
+        if (StringUtils.isEmpty(id)) {
+            this.id = null;
+            return true;
+        }
+        return false;
     }
 }
