@@ -16,8 +16,8 @@ import java.util.List;
 
 @Path("speakers")
 @RegisterRestClient
-@Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
-@Consumes(MediaType.APPLICATION_JSON + "; charset=utf-8")
+@Produces(MediaType.APPLICATION_JSON + "; charset=UTF-8")
+@Consumes(MediaType.APPLICATION_JSON + "; charset=UTF-8")
 public interface SpeakerService {
 
     @GET
@@ -29,7 +29,7 @@ public interface SpeakerService {
 
     @PUT
     @Path("{id}")
-    Speaker update(@PathParam("id") Integer id, Speaker speaker) ;
+    Speaker update(@PathParam("id") Integer id, Speaker speaker);
 
     @DELETE
     @Path("{id}")

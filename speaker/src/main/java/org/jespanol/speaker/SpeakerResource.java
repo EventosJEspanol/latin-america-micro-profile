@@ -21,8 +21,8 @@ import static javax.ws.rs.core.Response.status;
 
 @Path("speakers")
 @RequestScoped
-@Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
-@Consumes(MediaType.APPLICATION_JSON + "; charset=utf-8")
+@Produces(MediaType.APPLICATION_JSON + "; charset=UTF-8")
+@Consumes(MediaType.APPLICATION_JSON + "; charset=UTF-8")
 public class SpeakerResource {
 
     @Inject
