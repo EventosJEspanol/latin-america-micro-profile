@@ -5,11 +5,12 @@
     <title>Latin America Conf (Session)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta charset="UTF-8">
 </head>
 <body>
 <div class="container">
     <h1>Conference</h1>
-    <form th:action="@{/conference/add}"  method="post">
+    <form th:action="@{/conference/add}"  method="post" accept-charset="UTF-8">
         <input id="id" name="id" type="hidden" th:value="${conference.id}">
         <div class="form-group">
             <label for="conferenceName">Name</label>
