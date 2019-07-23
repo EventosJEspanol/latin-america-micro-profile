@@ -1,11 +1,16 @@
 package org.jespanol.client.conference;
 
+import org.jespanol.client.session.Session;
+import org.jespanol.client.session.SessionService;
+import org.jespanol.client.speaker.Speaker;
+import org.jespanol.client.speaker.SpeakerService;
 import org.thymeleaf.util.StringUtils;
 
 import javax.ws.rs.FormParam;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Conference {
 
@@ -29,6 +34,10 @@ public class Conference {
 
     @FormParam("presentations")
     private List<String> sessionsIds = new ArrayList<>();
+
+    private List<Speaker> speakers = new ArrayList<>();
+
+    private List<Session> sessions = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -85,6 +94,34 @@ public class Conference {
     public void setSessionsIds(List<String> sessionsIds) {
         this.sessionsIds = sessionsIds;
     }
+
+    public List<Speaker> getSpeakers() {
+        return speakers;
+    }
+
+    public void setSpeakers(List<Speaker> speakers) {
+        this.speakers = speakers;
+    }
+
+    public List<Session> getSessions() {
+        return sessions;
+    }
+
+    public void setSessions(List<Session> sessions) {
+        this.sessions = sessions;
+    }
+
+
+    public void update(SpeakerService speakerService, SessionService sessionService) {
+        this.sessions = this.sessionsIds.stream().map(sessionService::findById).collect(Collectors.toList());
+        this.speakers = this.speakersIds.stream().map(speakerService::findById).collect(Collectors.toList());
+    }
+
+    public void updateIds() {
+        this.sessionsIds = sessions.stream().map(Session::getId).collect(Collectors.toList());
+        this.speakersIds = speakers.stream().map(Speaker::getId).collect(Collectors.toList());
+    }
+
 
     @Override
     public boolean equals(Object o) {

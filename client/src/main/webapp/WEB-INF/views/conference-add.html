@@ -30,7 +30,6 @@
         <div class="form-group">
             <label for="conferenceSpeakers">Speakers</label>
             <select class="form-control" multiple id="conferenceSpeakers" th:value="${conference.speakersIds}" name="speakers" required>
-                <option value="" disabled selected>Choose your Speakers</option>
                 <tr th:each="speaker : ${speakers}">
                     <option th:value="${speaker.id}" th:text="${speaker.name}" th:selected="${conference.speakersIds.contains(speaker.id)}"></option>
                 </tr>
@@ -39,7 +38,6 @@
         <div class="form-group">
             <label for="conferenceSpeakers">Sessions</label>
             <select class="form-control" multiple id="conferenceSessions" th:value="${conference.sessionsIds}" name="presentations" required>
-                <option value="" disabled selected>Choose your Sessions</option>
                 <tr th:each="presentation : ${presentations}">
                     <option th:value="${presentation.id}" th:text="${presentation.name}" th:selected="${conference.sessionsIds.contains(presentation.id)}"></option>
                 </tr>

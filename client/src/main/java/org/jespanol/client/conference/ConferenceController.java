@@ -65,6 +65,7 @@ public class ConferenceController {
     public void edit(@PathParam("id") String id) {
         final Conference conference = Optional.ofNullable(conferenceService.findById(id))
                 .orElse(new Conference());
+        conference.updateIds();
         this.models.put("conference", conference);
         this.models.put("speakers", speakerService.findAll());
         this.models.put("presentations", sessionService.findAll());
@@ -74,6 +75,7 @@ public class ConferenceController {
     @POST
     @View("conference.html")
     public void add(@BeanParam Conference conference) {
+        conference.update(speakerService, sessionService);
         if (conference.isIdEmpty()) {
             conferenceService.insert(conference);
         } else {
