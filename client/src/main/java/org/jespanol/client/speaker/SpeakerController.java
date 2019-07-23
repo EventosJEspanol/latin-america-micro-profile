@@ -34,8 +34,8 @@ import java.util.Optional;
 
 @Controller
 @Path("speaker")
-@Produces(MediaType.APPLICATION_JSON + "; charset=UTF-8")
-@Consumes(MediaType.APPLICATION_JSON + "; charset=UTF-8")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class SpeakerController {
 
     @Inject

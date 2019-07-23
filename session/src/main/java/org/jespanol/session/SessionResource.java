@@ -22,8 +22,8 @@ import static javax.ws.rs.core.Response.status;
 
 @Path("sessions")
 @RequestScoped
-@Produces(MediaType.APPLICATION_JSON + "; charset=UTF-8")
-@Consumes(MediaType.APPLICATION_JSON + "; charset=UTF-8")
+@Produces(MediaType.APPLICATION_JSON )
+@Consumes(MediaType.APPLICATION_JSON)
 public class SessionResource {
 
     @Inject

@@ -22,8 +22,8 @@ import java.util.Optional;
 
 @Controller
 @Path("conference")
-@Produces(MediaType.APPLICATION_JSON + "; charset=UTF-8")
-@Consumes(MediaType.APPLICATION_JSON + "; charset=UTF-8")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class ConferenceController {
     @Inject
     private Models models;
