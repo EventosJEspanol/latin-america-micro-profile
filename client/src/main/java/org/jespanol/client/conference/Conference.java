@@ -30,10 +30,10 @@ public class Conference {
     private Integer year;
 
     @FormParam("speakers")
-    private List<Integer> speakersIds = new ArrayList<>();
+    private List<Integer> speakersIds;
 
     @FormParam("presentations")
-    private List<String> sessionsIds = new ArrayList<>();
+    private List<String> sessionsIds;
 
     private List<Speaker> speakers = new ArrayList<>();
 
@@ -80,6 +80,9 @@ public class Conference {
     }
 
     public List<Integer> getSpeakersIds() {
+        if(speakersIds == null) {
+            updateIds();
+        }
         return speakersIds;
     }
 
@@ -88,6 +91,9 @@ public class Conference {
     }
 
     public List<String> getSessionsIds() {
+        if(sessionsIds == null) {
+            updateIds();
+        }
         return sessionsIds;
     }
 
@@ -117,7 +123,7 @@ public class Conference {
         this.speakers = this.speakersIds.stream().map(speakerService::findById).collect(Collectors.toList());
     }
 
-    public void updateIds() {
+    private void updateIds() {
         this.sessionsIds = sessions.stream().map(Session::getId).collect(Collectors.toList());
         this.speakersIds = speakers.stream().map(Speaker::getId).collect(Collectors.toList());
     }

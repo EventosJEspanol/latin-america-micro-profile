@@ -16,8 +16,8 @@ import java.util.List;
 
 @Path("conferences")
 @RegisterRestClient
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
+@Produces(MediaType.APPLICATION_JSON + "; charset=utf-8")
+@Consumes(MediaType.APPLICATION_JSON + "; charset=utf-8")
 public interface ConferenceService {
 
     @GET

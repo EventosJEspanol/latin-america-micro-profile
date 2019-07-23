@@ -65,7 +65,6 @@ public class ConferenceController {
     public void edit(@PathParam("id") String id) {
         final Conference conference = Optional.ofNullable(conferenceService.findById(id))
                 .orElse(new Conference());
-        conference.updateIds();
         this.models.put("conference", conference);
         this.models.put("speakers", speakerService.findAll());
         this.models.put("presentations", sessionService.findAll());
