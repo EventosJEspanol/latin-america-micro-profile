@@ -21,8 +21,6 @@ import java.util.Optional;
 
 @Controller
 @Path("session")
-@Produces(MediaType.APPLICATION_JSON)
-@Consumes(MediaType.APPLICATION_JSON)
 public class SessionController {
     @Inject
     private Models models;
