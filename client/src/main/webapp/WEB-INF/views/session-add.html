@@ -5,11 +5,12 @@
     <title>Latin America Conf (Session)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta charset="UTF-8">
 </head>
 <body>
 <div class="container">
     <h1>Session</h1>
-    <form th:action="@{/session/add}"  method="post">
+    <form th:action="@{/session/add}"  method="post" accept-charset="UTF-8">
         <input id="id" name="id" type="hidden" th:value="${presentation.id}">
         <div class="form-group">
             <label for="sessionNameId">Name</label>
@@ -26,8 +27,9 @@
         <div class="form-group">
             <label for="sessionConference">Conference</label>
             <select class="form-control" id="sessionConference" th:value="${presentation.conference}" name="conference">
+                <option value="" disabled selected>Choose your Conference</option>
                 <tr th:each="conference : ${conferences}">
-                    <option th:value="${conference.id}" th:text="${conference.name}" th:selected="${presentation.conference==conferences.id}"></option>
+                    <option th:value="${conference.id}" th:text="${conference.name}" th:selected="${presentation.conference==conference.id}"></option>
                 </tr>
             </select>
         </div>

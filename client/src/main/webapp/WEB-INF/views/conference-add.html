@@ -5,11 +5,12 @@
     <title>Latin America Conf (Session)</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <meta charset="UTF-8">
 </head>
 <body>
 <div class="container">
     <h1>Conference</h1>
-    <form th:action="@{/conference/add}"  method="post">
+    <form th:action="@{/conference/add}"  method="post" accept-charset="UTF-8">
         <input id="id" name="id" type="hidden" th:value="${conference.id}">
         <div class="form-group">
             <label for="conferenceName">Name</label>
@@ -29,7 +30,7 @@
         </div>
         <div class="form-group">
             <label for="conferenceSpeakers">Speakers</label>
-            <select class="form-control" multiple id="conferenceSpeakers" th:value="${conference.speakersIds}" name="speakers" required>
+            <select class="form-control"  id="conferenceSpeakers" th:value="${conference.speakersIds}" name="speakers" multiple>
                 <tr th:each="speaker : ${speakers}">
                     <option th:value="${speaker.id}" th:text="${speaker.name}" th:selected="${conference.speakersIds.contains(speaker.id)}"></option>
                 </tr>
@@ -37,7 +38,7 @@
         </div>
         <div class="form-group">
             <label for="conferenceSpeakers">Sessions</label>
-            <select class="form-control" multiple id="conferenceSessions" th:value="${conference.sessionsIds}" name="presentations" required>
+            <select class="form-control" id="conferenceSessions" th:value="${conference.sessionsIds}" name="presentations" multiple>
                 <tr th:each="presentation : ${presentations}">
                     <option th:value="${presentation.id}" th:text="${presentation.name}" th:selected="${conference.sessionsIds.contains(presentation.id)}"></option>
                 </tr>
