@@ -1,4 +1,4 @@
-package org.jespanol.client;
+package org.jespanol.client.speaker;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
@@ -29,7 +29,7 @@ public interface SpeakerService {
 
     @PUT
     @Path("{id}")
-    Speaker update(@PathParam("id") Integer id, Speaker speaker) ;
+    Speaker update(@PathParam("id") Integer id, Speaker speaker);
 
     @DELETE
     @Path("{id}")

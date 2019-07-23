@@ -2,12 +2,13 @@ package org.jespanol.conference;
 
 import jakarta.nosql.mapping.AttributeConverter;
 import org.bson.types.ObjectId;
+import org.jnosql.artemis.util.StringUtils;
 
 public class ObjectIdConverter implements AttributeConverter<String, ObjectId> {
 
     @Override
     public ObjectId convertToDatabaseColumn(String attribute) {
-        if(attribute != null) {
+        if (StringUtils.isNotBlank(attribute)) {
             return new ObjectId(attribute);
         }
         return null;
@@ -15,7 +16,7 @@ public class ObjectIdConverter implements AttributeConverter<String, ObjectId> {
 
     @Override
     public String convertToEntityAttribute(ObjectId dbData) {
-        if(dbData != null) {
+        if (dbData != null) {
             return dbData.toHexString();
         }
         return null;

@@ -1,6 +1,8 @@
-package org.jespanol.client;
+package org.jespanol.client.session;
 
 import org.eclipse.microprofile.rest.client.inject.RestClient;
+import org.jespanol.client.conference.ConferenceService;
+import org.jespanol.client.speaker.SpeakerService;
 import org.thymeleaf.util.StringUtils;
 
 import javax.inject.Inject;
@@ -8,10 +10,13 @@ import javax.mvc.Controller;
 import javax.mvc.Models;
 import javax.mvc.View;
 import javax.ws.rs.BeanParam;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import java.util.Optional;
 
 @Controller

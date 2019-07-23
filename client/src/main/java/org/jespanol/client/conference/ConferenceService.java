@@ -1,4 +1,4 @@
-package org.jespanol.client;
+package org.jespanol.client.conference;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 

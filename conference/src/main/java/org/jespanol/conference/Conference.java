@@ -26,7 +26,7 @@ public class Conference {
     private String link;
 
     @Column
-    private Year year;
+    private Integer year;
 
     @Column
     private List<Speaker> speakers;
@@ -66,11 +66,11 @@ public class Conference {
         this.link = link;
     }
 
-    public Year getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(Year year) {
+    public void setYear(Integer year) {
         this.year = year;
     }
 
