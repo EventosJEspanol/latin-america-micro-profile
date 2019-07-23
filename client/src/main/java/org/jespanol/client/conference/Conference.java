@@ -25,10 +25,10 @@ public class Conference {
     private Integer year;
 
     @FormParam("speakers")
-    private List<Integer> speakers = new ArrayList<>();
+    private List<Integer> speakersIds = new ArrayList<>();
 
     @FormParam("presentations")
-    private List<String> sessions = new ArrayList<>();
+    private List<String> sessionsIds = new ArrayList<>();
 
     public String getId() {
         return id;
@@ -70,20 +70,20 @@ public class Conference {
         this.year = year;
     }
 
-    public List<Integer> getSpeakers() {
-        return speakers;
+    public List<Integer> getSpeakersIds() {
+        return speakersIds;
     }
 
-    public void setSpeakers(List<Integer> speakers) {
-        this.speakers = speakers;
+    public void setSpeakersIds(List<Integer> speakersIds) {
+        this.speakersIds = speakersIds;
     }
 
-    public List<String> getSessions() {
-        return sessions;
+    public List<String> getSessionsIds() {
+        return sessionsIds;
     }
 
-    public void setSessions(List<String> sessions) {
-        this.sessions = sessions;
+    public void setSessionsIds(List<String> sessionsIds) {
+        this.sessionsIds = sessionsIds;
     }
 
     @Override
@@ -111,6 +111,8 @@ public class Conference {
                 ", city='" + city + '\'' +
                 ", link='" + link + '\'' +
                 ", year=" + year +
+                ", speakersIds=" + speakersIds +
+                ", sessionsIds=" + sessionsIds +
                 '}';
     }
 

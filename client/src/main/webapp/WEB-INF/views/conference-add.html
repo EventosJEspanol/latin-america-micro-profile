@@ -27,6 +27,22 @@
             <label for="conferenceYear">Year</label>
             <input type="number" class="form-control" th:value="${conference.year}" name="year" id="conferenceYear" placeholder="Enter Conference Year">
         </div>
+        <div class="form-group">
+            <label for="conferenceSpeakers">Speakers</label>
+            <select class="form-control" multiple id="conferenceSpeakers" th:value="${conference.speakersIds}" name="speakers" required>
+                <tr th:each="speaker : ${speakers}">
+                    <option th:value="${speaker.id}" th:text="${speaker.name}" th:selected="${conference.speakersIds.contains(speaker.id)}"></option>
+                </tr>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="conferenceSpeakers">Sessions</label>
+            <select class="form-control" multiple id="conferenceSessions" th:value="${conference.sessionsIds}" name="presentations" required>
+                <tr th:each="presentation : ${presentations}">
+                    <option th:value="${presentation.id}" th:text="${presentation.name}" th:selected="${conference.sessionsIds.contains(presentation.id)}"></option>
+                </tr>
+            </select>
+        </div>
         <button type="submit" class="btn">Save</button>
     </form>
 </div>
