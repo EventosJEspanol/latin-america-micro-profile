@@ -58,7 +58,7 @@
         </dependency>
         <dependency>
             <groupId>org.jnosql.artemis</groupId>
-            <artifactId>artemis-document</artifactId>
+            <artifactId>elasticsearch-extension</artifactId>
         </dependency>
         <dependency>
             <groupId>org.jnosql.diana</groupId>

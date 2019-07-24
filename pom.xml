@@ -79,6 +79,11 @@
                 <version>${jnosql.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.jnosql.artemis</groupId>
+                <artifactId>elasticsearch-extension</artifactId>
+                <version>${jnosql.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.jnosql.diana</groupId>
                 <artifactId>mongodb-driver</artifactId>
                 <version>${jnosql.version}</version>

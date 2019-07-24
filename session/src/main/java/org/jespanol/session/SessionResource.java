@@ -1,5 +1,9 @@
 package org.jespanol.session;
 
+import org.elasticsearch.index.query.QueryBuilder;
+import org.jnosql.artemis.elasticsearch.document.ElasticsearchTemplate;
+import org.jnosql.artemis.util.StringUtils;
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.validation.Valid;
@@ -11,6 +15,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -22,6 +27,8 @@ import java.util.stream.Collectors;
 
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.status;
+import static org.elasticsearch.index.query.QueryBuilders.boolQuery;
+import static org.elasticsearch.index.query.QueryBuilders.termQuery;
 
 @Path("sessions")
 @RequestScoped
@@ -32,8 +39,22 @@ public class SessionResource {
     @Inject
     private SessionRepository speakerRepository;
 
+    @Inject
+    private ElasticsearchTemplate template;
+
     @GET
-    public List<SessionDTO> findAll() {
+    public List<SessionDTO> findAll(@QueryParam("search") String search) {
+        if (StringUtils.isNotBlank(search)) {
+            QueryBuilder queryBuilder = boolQuery()
+                    .should(termQuery("name", search))
+                    .should(termQuery("title", search))
+                    .should(termQuery("description", search));
+
+            List<Session> sessions = template.search(queryBuilder, "Session");
+            return sessions.stream()
+                    .map(SessionDTO::of)
+                    .collect(Collectors.toList());
+        }
         return speakerRepository.findAll().stream()
                 .map(SessionDTO::of).collect(Collectors.toList());
     }
