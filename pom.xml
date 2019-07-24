@@ -24,6 +24,7 @@
         <elasticsearch.restclient.version>6.5.0</elasticsearch.restclient.version>
         <hibernate-entitymanager.version>5.4.3.Final</hibernate-entitymanager.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
+        <jakarta.validation.version>2.0.1</jakarta.validation.version>
 
         <!-- Maven plugins -->
         <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
@@ -78,6 +79,11 @@
                 <version>${jnosql.version}</version>
             </dependency>
             <dependency>
+                <groupId>org.jnosql.artemis</groupId>
+                <artifactId>elasticsearch-extension</artifactId>
+                <version>${jnosql.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>org.jnosql.diana</groupId>
                 <artifactId>mongodb-driver</artifactId>
                 <version>${jnosql.version}</version>
@@ -107,6 +113,11 @@
                 <groupId>postgresql</groupId>
                 <artifactId>postgresql</artifactId>
                 <version>${postgresql.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>jakarta.validation</groupId>
+                <artifactId>jakarta.validation-api</artifactId>
+                <version>${jakarta.validation.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

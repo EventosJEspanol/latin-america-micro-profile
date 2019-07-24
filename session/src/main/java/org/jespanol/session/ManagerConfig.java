@@ -1,7 +1,7 @@
 package org.jespanol.session;
 
-import jakarta.nosql.document.DocumentCollectionManager;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManager;
 import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManagerFactory;
 import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentConfiguration;
 import sh.platform.config.Config;
@@ -18,7 +18,7 @@ public class ManagerConfig {
 
     @Produces
     @ApplicationScoped
-    public DocumentCollectionManager getColumn() throws IOException {
+    public ElasticsearchDocumentCollectionManager getColumn() throws IOException {
         Config config = new Config();
         final Elasticsearch elasticsearch = config.getCredential("elasticsearch", Elasticsearch::new);
         final RestHighLevelClient client = elasticsearch.get();
