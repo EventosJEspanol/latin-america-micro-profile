@@ -29,6 +29,7 @@ public class Conference {
     private String link;
 
     @Column
+    @Convert(YearConverter.class)
     private Year year;
 
     @Column
