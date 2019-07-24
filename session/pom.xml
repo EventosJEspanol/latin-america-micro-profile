@@ -45,6 +45,14 @@
             <artifactId>kumuluzee-microProfile-1.0</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-el-uel</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.kumuluz.ee</groupId>
+            <artifactId>kumuluzee-bean-validation-hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
             <groupId>sh.platform</groupId>
             <artifactId>config</artifactId>
         </dependency>

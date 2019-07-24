@@ -13,19 +13,19 @@ public class ConferenceDTO {
     private String id;
 
     @NotBlank(message = "Name cannot be blank")
-    @NotNull
+    @NotNull(message = "Name is required")
     private String name;
 
     @NotBlank(message = "City cannot be blank")
-    @NotNull
+    @NotNull(message = "City is required")
     private String city;
 
     @NotBlank(message = "Link cannot be blank")
-    @NotNull
+    @NotNull(message = "Link is required")
     private String link;
 
     @NotBlank(message = "Year cannot be blank")
-    @NotNull
+    @NotNull(message = "Year is required")
     private Integer year;
 
     private List<SpeakerDTO> speakers;

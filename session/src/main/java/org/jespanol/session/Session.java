@@ -27,53 +27,28 @@ public class Session {
     @Column
     private Integer speaker;
 
-
     public String getId() {
         return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getTitle() {
         return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getConference() {
         return conference;
     }
 
-    public void setConference(String conference) {
-        this.conference = conference;
-    }
-
     public Integer getSpeaker() {
         return speaker;
-    }
-
-    public void setSpeaker(Integer speaker) {
-        this.speaker = speaker;
     }
 
     public void update(Session sessionUpdated) {
@@ -111,6 +86,18 @@ public class Session {
                 ", conference='" + conference + '\'' +
                 ", speaker='" + speaker + '\'' +
                 '}';
+    }
+
+    public static Session of(SessionDTO dto) {
+        Objects.requireNonNull(dto, "dto is required");
+        Session session = new Session();
+        session.id = dto.getId();
+        session.name = dto.getName();
+        session.title = dto.getTitle();
+        session.description = dto.getDescription();
+        session.conference = dto.getConference();
+        session.speaker = dto.getSpeaker();
+        return session;
     }
 
 }
