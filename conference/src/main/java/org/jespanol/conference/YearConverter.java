@@ -4,20 +4,20 @@ import jakarta.nosql.mapping.AttributeConverter;
 
 import java.time.Year;
 
-public class YearConverter implements AttributeConverter<Integer, Year> {
+public class YearConverter implements AttributeConverter<Year, Integer> {
 
     @Override
-    public Year convertToDatabaseColumn(Integer attribute) {
+    public Integer convertToDatabaseColumn(Year attribute) {
         if (attribute != null) {
-            return Year.of(attribute);
+            return attribute.getValue();
         }
         return null;
     }
 
     @Override
-    public Integer convertToEntityAttribute(Year dbData) {
+    public Year convertToEntityAttribute(Integer dbData) {
         if (dbData != null) {
-            return dbData.getValue();
+            return Year.of(dbData);
         }
         return null;
     }

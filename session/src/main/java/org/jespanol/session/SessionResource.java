@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
@@ -36,6 +37,8 @@ import static org.elasticsearch.index.query.QueryBuilders.termQuery;
 @Consumes(MediaType.APPLICATION_JSON + "; charset=UTF-8")
 public class SessionResource {
 
+    private static Logger LOGGER = Logger.getLogger(SessionResource.class.getName());
+
     @Inject
     private SessionRepository speakerRepository;
 
@@ -44,13 +47,16 @@ public class SessionResource {
 
     @GET
     public List<SessionDTO> findAll(@QueryParam("search") String search) {
+        LOGGER.info("searching with the field: " + search);
         if (StringUtils.isNotBlank(search)) {
             QueryBuilder queryBuilder = boolQuery()
                     .should(termQuery("name", search))
                     .should(termQuery("title", search))
                     .should(termQuery("description", search));
 
+            LOGGER.info("the query: " + queryBuilder);
             List<Session> sessions = template.search(queryBuilder, "Session");
+            LOGGER.info("the result: " + sessions);
             return sessions.stream()
                     .map(SessionDTO::of)
                     .collect(Collectors.toList());

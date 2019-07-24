@@ -14,19 +14,19 @@
         <input id="id" name="id" type="hidden" th:value="${conference.id}">
         <div class="form-group">
             <label for="conferenceName">Name</label>
-            <input type="text" class="form-control" th:value="${conference.name}" name="name" id="conferenceName" placeholder="Enter Session Name">
+            <input type="text" class="form-control" th:value="${conference.name}" name="name" id="conferenceName" placeholder="Enter Session Name" required>
         </div>
         <div class="form-group">
             <label for="conferenceCity">City</label>
-            <input type="text" class="form-control" th:value="${conference.city}" name="city" id="conferenceCity" placeholder="Enter Conference City">
+            <input type="text" class="form-control" th:value="${conference.city}" name="city" id="conferenceCity" placeholder="Enter Conference City" required>
         </div>
         <div class="form-group">
             <label for="conferenceLink">Link</label>
-            <input type="url" class="form-control" th:value="${conference.link}" name="link" id="conferenceLink" placeholder="Enter Conference Link">
+            <input type="url" class="form-control" th:value="${conference.link}" name="link" id="conferenceLink" placeholder="Enter Conference Link" required>
         </div>
         <div class="form-group">
             <label for="conferenceYear">Year</label>
-            <input type="number" class="form-control" th:value="${conference.year}" name="year" id="conferenceYear" placeholder="Enter Conference Year">
+            <input type="number" class="form-control" th:value="${conference.year}" name="year" id="conferenceYear" placeholder="Enter Conference Year" required>
         </div>
         <div class="form-group">
             <label for="conferenceSpeakers">Speakers</label>

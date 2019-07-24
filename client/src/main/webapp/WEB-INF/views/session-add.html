@@ -14,19 +14,19 @@
         <input id="id" name="id" type="hidden" th:value="${presentation.id}">
         <div class="form-group">
             <label for="sessionNameId">Name</label>
-            <input type="text" class="form-control" th:value="${presentation.name}" name="name" id="sessionNameId" placeholder="Enter Session Name">
+            <input type="text" class="form-control" th:value="${presentation.name}" name="name" id="sessionNameId" placeholder="Enter Session Name" required>
         </div>
         <div class="form-group">
             <label for="sessionTitle">Title</label>
-            <input type="text" class="form-control" th:value="${presentation.title}" name="title" id="sessionTitle" placeholder="Enter Session Title">
+            <input type="text" class="form-control" th:value="${presentation.title}" name="title" id="sessionTitle" placeholder="Enter Session Title" required>
         </div>
         <div class="form-group">
             <label for="sessionDescription">Description</label>
-            <input type="text" class="form-control" th:value="${presentation.description}" name="description" id="sessionDescription" placeholder="Enter Session Description">
+            <input type="text" class="form-control" th:value="${presentation.description}" name="description" id="sessionDescription" placeholder="Enter Session Description" required>
         </div>
         <div class="form-group">
             <label for="sessionConference">Conference</label>
-            <select class="form-control" id="sessionConference" th:value="${presentation.conference}" name="conference">
+            <select class="form-control" id="sessionConference" th:value="${presentation.conference}" name="conference" required>
                 <option value="" disabled selected>Choose your Conference</option>
                 <tr th:each="conference : ${conferences}">
                     <option th:value="${conference.id}" th:text="${conference.name}" th:selected="${presentation.conference==conference.id}"></option>

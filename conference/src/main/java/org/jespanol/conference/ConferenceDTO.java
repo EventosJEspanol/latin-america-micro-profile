@@ -2,6 +2,7 @@ package org.jespanol.conference;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Positive;
 import java.time.Year;
 import java.util.Collections;
 import java.util.List;
@@ -24,8 +25,8 @@ public class ConferenceDTO {
     @NotNull(message = "Link is required")
     private String link;
 
-    @NotBlank(message = "Year cannot be blank")
     @NotNull(message = "Year is required")
+    @Positive(message = "Year cannot be negative")
     private Integer year;
 
     private List<SpeakerDTO> speakers;

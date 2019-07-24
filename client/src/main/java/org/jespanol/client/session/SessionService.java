@@ -10,6 +10,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
@@ -19,6 +20,9 @@ import java.util.List;
 @Produces(MediaType.APPLICATION_JSON + "; charset=UTF-8")
 @Consumes(MediaType.APPLICATION_JSON+ "; charset=UTF-8")
 public interface SessionService {
+
+    @GET
+    List<Session> findAll(@QueryParam("search") String search);
 
     @GET
     List<Session> findAll();

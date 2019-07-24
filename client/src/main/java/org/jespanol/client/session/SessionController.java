@@ -10,13 +10,11 @@ import javax.mvc.Controller;
 import javax.mvc.Models;
 import javax.mvc.View;
 import javax.ws.rs.BeanParam;
-import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
 import java.util.Optional;
 
 @Controller
@@ -39,8 +37,13 @@ public class SessionController {
 
     @GET
     @View("session.html")
-    public void home() {
-        this.models.put("presentations", sessionService.findAll());
+    public void home(@FormParam("search") String search) {
+        if (StringUtils.isEmpty(search)) {
+            this.models.put("presentations", sessionService.findAll());
+        } else {
+            this.models.put("presentations", sessionService.findAll(search));
+        }
+
     }
 
 
