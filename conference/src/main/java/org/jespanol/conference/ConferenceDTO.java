@@ -24,7 +24,6 @@ public class ConferenceDTO {
     @NotNull(message = "Link is required")
     private String link;
 
-    @NotBlank(message = "Year cannot be blank")
     @NotNull(message = "Year is required")
     private Integer year;
 
