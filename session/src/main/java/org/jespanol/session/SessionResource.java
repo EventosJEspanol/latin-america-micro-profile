@@ -50,9 +50,9 @@ public class SessionResource {
         LOGGER.info("searching with the field: " + search);
         if (StringUtils.isNotBlank(search)) {
             QueryBuilder queryBuilder = boolQuery()
-                    .must(termQuery("name", search))
-                    .must(termQuery("title", search))
-                    .must(termQuery("description", search));
+                    .filter(termQuery("name", search))
+                    .filter(termQuery("title", search))
+                    .filter(termQuery("description", search));
 
             LOGGER.info("the query: " + queryBuilder);
             List<Session> sessions = template.search(queryBuilder, "Session");
