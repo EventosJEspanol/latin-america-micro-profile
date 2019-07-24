@@ -49,6 +49,10 @@
             <artifactId>hibernate-entitymanager</artifactId>
         </dependency>
         <dependency>
+            <groupId>io.thorntail</groupId>
+            <artifactId>bean-validation</artifactId>
+        </dependency>
+        <dependency>
             <groupId>sh.platform</groupId>
             <artifactId>config</artifactId>
         </dependency>

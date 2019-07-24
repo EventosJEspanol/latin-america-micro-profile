@@ -2,6 +2,7 @@ package org.jespanol.speaker;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.status;
@@ -29,25 +31,27 @@ public class SpeakerResource {
     private SpeakerService speakerService;
 
     @GET
-    public List<Speaker> findAll() {
-        return speakerService.findAll();
+    public List<SpeakerDTO> findAll() {
+        return speakerService.findAll()
+                .stream().map(SpeakerDTO::of)
+                .collect(Collectors.toList());
     }
 
     @GET
     @Path("{id}")
-    public Speaker findById(@PathParam("id") Integer id) {
+    public SpeakerDTO findById(@PathParam("id") Integer id) {
         final Optional<Speaker> conference = speakerService.find(id);
-        return conference.orElseThrow(this::notFound);
+        return conference.map(SpeakerDTO::of).orElseThrow(this::notFound);
     }
 
     @PUT
     @Path("{id}")
-    public Speaker update(@PathParam("id") Integer id, Speaker speakerUpdated) {
+    public SpeakerDTO update(@PathParam("id") Integer id, @Valid Speaker speakerUpdated) {
         final Optional<Speaker> optional = speakerService.find(id);
         final Speaker speaker = optional.orElseThrow(() -> notFound());
         speaker.update(speakerUpdated);
         speakerService.update(speaker);
-        return speaker;
+        return SpeakerDTO.of(speaker);
     }
 
     @DELETE
@@ -58,8 +62,8 @@ public class SpeakerResource {
     }
 
     @POST
-    public Speaker insert(Speaker speaker) {
-        return speakerService.insert(speaker);
+    public SpeakerDTO insert(@Valid SpeakerDTO speaker) {
+        return SpeakerDTO.of(speakerService.insert(Speaker.of(speaker)));
     }
 
     private WebApplicationException notFound() {
