@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label for="sessionConference">Conference</label>
-            <select class="form-control" id="sessionConference" th:value="${presentation.conference}" name="conference">
+            <select class="form-control" id="sessionConference" th:value="${presentation.conference}" name="conference" required>
                 <option value="" disabled selected>Choose your Conference</option>
                 <tr th:each="conference : ${conferences}">
                     <option th:value="${conference.id}" th:text="${conference.name}" th:selected="${presentation.conference==conference.id}"></option>
