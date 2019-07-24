@@ -2,6 +2,7 @@ package org.jespanol.conference;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -15,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.status;
@@ -29,25 +31,27 @@ public class ConferenceResource {
     private ConferenceRepository conferenceRepository;
 
     @GET
-    public List<Conference> findAll() {
-        return conferenceRepository.findAll();
+    public List<ConferenceDTO> findAll() {
+        return conferenceRepository.findAll().stream()
+                .map(ConferenceDTO::of)
+                .collect(Collectors.toList());
     }
 
     @GET
     @Path("{id}")
-    public Conference findById(@PathParam("id") String id) {
+    public ConferenceDTO findById(@PathParam("id") String id) {
         final Optional<Conference> conference = conferenceRepository.findById(id);
-        return conference.orElseThrow(this::notFound);
+        return conference.map(ConferenceDTO::of).orElseThrow(this::notFound);
     }
 
     @PUT
     @Path("{id}")
-    public Conference update(@PathParam("id") String id, Conference conferenceUpdated) {
+    public ConferenceDTO update(@PathParam("id") String id, @Valid ConferenceDTO conferenceUpdated) {
         final Optional<Conference> optional = conferenceRepository.findById(id);
         final Conference conference = optional.orElseThrow(() -> notFound());
-        conference.update(conferenceUpdated);
+        conference.update(Conference.of(conferenceUpdated));
         conferenceRepository.save(conference);
-        return conference;
+        return ConferenceDTO.of(conference);
     }
 
     @DELETE
@@ -58,8 +62,8 @@ public class ConferenceResource {
     }
 
     @POST
-    public Conference insert(Conference conference) {
-        return conferenceRepository.save(conference);
+    public ConferenceDTO insert(@Valid ConferenceDTO conference) {
+        return ConferenceDTO.of(conferenceRepository.save(Conference.of(conference)));
     }
 
     private WebApplicationException notFound() {

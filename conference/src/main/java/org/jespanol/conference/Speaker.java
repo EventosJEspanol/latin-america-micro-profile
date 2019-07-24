@@ -3,6 +3,8 @@ package org.jespanol.conference;
 import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Entity;
 
+import java.util.Objects;
+
 @Entity
 public class Speaker {
 
@@ -12,16 +14,8 @@ public class Speaker {
     @Column
     private String name;
 
-    public Integer getId() {
-        return id;
-    }
-
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
@@ -35,4 +29,13 @@ public class Speaker {
                 ", name='" + name + '\'' +
                 '}';
     }
+
+    public static Speaker of(SpeakerDTO dto) {
+        Objects.requireNonNull(dto, "dto is required");
+        Speaker speaker = new Speaker();
+        speaker.id = dto.getId();
+        speaker.name = dto.getName();
+        return speaker;
+    }
+
 }

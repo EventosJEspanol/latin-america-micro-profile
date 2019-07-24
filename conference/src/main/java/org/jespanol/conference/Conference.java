@@ -6,8 +6,11 @@ import jakarta.nosql.mapping.Entity;
 import jakarta.nosql.mapping.Id;
 
 import java.time.Year;
+import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Entity
 public class Conference {
@@ -26,7 +29,7 @@ public class Conference {
     private String link;
 
     @Column
-    private Integer year;
+    private Year year;
 
     @Column
     private List<Speaker> speakers;
@@ -38,56 +41,34 @@ public class Conference {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getCity() {
         return city;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
     public String getLink() {
         return link;
     }
 
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public Integer getYear() {
-        return year;
-    }
-
-    public void setYear(Integer year) {
-        this.year = year;
+    public Optional<Year> getYear() {
+        return Optional.ofNullable(year);
     }
 
     public List<Speaker> getSpeakers() {
-        return speakers;
-    }
-
-    public void setSpeakers(List<Speaker> speakers) {
-        this.speakers = speakers;
+        if (speakers == null) {
+            return Collections.emptyList();
+        }
+        return Collections.unmodifiableList(speakers);
     }
 
     public List<Session> getSessions() {
-        return sessions;
-    }
-
-    public void setSessions(List<Session> sessions) {
-        this.sessions = sessions;
+        if (sessions == null) {
+            return Collections.emptyList();
+        }
+        return Collections.unmodifiableList(sessions);
     }
 
     public void update(Conference conference) {
@@ -127,5 +108,18 @@ public class Conference {
                 ", speakers=" + speakers +
                 ", sessions=" + sessions +
                 '}';
+    }
+
+    public static Conference of(ConferenceDTO dto) {
+        Objects.requireNonNull(dto, "dto is required");
+        Conference conference = new Conference();
+        conference.id = dto.getId();
+        conference.name = dto.getName();
+        conference.city = dto.getCity();
+        conference.link = dto.getLink();
+        conference.year = Year.of(dto.getYear());
+        conference.sessions = dto.getSessions().stream().map(Session::of).collect(Collectors.toList());
+        conference.speakers = dto.getSpeakers().stream().map(Speaker::of).collect(Collectors.toList());
+        return conference;
     }
 }

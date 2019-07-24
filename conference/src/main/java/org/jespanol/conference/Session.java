@@ -3,6 +3,8 @@ package org.jespanol.conference;
 import jakarta.nosql.mapping.Column;
 import jakarta.nosql.mapping.Entity;
 
+import java.util.Objects;
+
 @Entity
 public class Session {
 
@@ -16,16 +18,8 @@ public class Session {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     @Override
@@ -34,5 +28,13 @@ public class Session {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public static Session of(SessionDTO dto) {
+        Objects.requireNonNull(dto, "dto is required");
+        Session session = new Session();
+        session.id = dto.getId();
+        session.name = dto.getName();
+        return session;
     }
 }
