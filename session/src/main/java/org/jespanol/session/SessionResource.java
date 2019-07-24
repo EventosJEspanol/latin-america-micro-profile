@@ -2,6 +2,7 @@ package org.jespanol.session;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
+import javax.validation.Valid;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -13,9 +14,11 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import static javax.ws.rs.core.Response.Status.NO_CONTENT;
 import static javax.ws.rs.core.Response.status;
@@ -23,15 +26,16 @@ import static javax.ws.rs.core.Response.status;
 @Path("sessions")
 @RequestScoped
 @Produces(MediaType.APPLICATION_JSON + "; charset=UTF-8")
-@Consumes(MediaType.APPLICATION_JSON+ "; charset=UTF-8")
+@Consumes(MediaType.APPLICATION_JSON + "; charset=UTF-8")
 public class SessionResource {
 
     @Inject
     private SessionRepository speakerRepository;
 
     @GET
-    public List<Session> findAll() {
-        return speakerRepository.findAll();
+    public List<SessionDTO> findAll() {
+        return speakerRepository.findAll().stream()
+                .map(SessionDTO::of).collect(Collectors.toList());
     }
 
     @GET
@@ -43,12 +47,12 @@ public class SessionResource {
 
     @PUT
     @Path("{id}")
-    public Session update(@PathParam("id") String id, Session sessionUpdated) {
+    public SessionDTO update(@PathParam("id") String id, @Valid SessionDTO sessionUpdated) {
         final Optional<Session> optional = speakerRepository.findById(id);
-        final Session speaker = optional.orElseThrow(() -> notFound());
-        speaker.update(sessionUpdated);
-        speakerRepository.save(speaker);
-        return speaker;
+        final Session session = optional.orElseThrow(() -> notFound());
+        session.update(Session.of(sessionUpdated));
+        speakerRepository.save(session);
+        return SessionDTO.of(session);
     }
 
     @DELETE
@@ -59,9 +63,9 @@ public class SessionResource {
     }
 
     @POST
-    public Session insert(Session session) {
+    public SessionDTO insert(@Valid SessionDTO session) {
         session.setId(UUID.randomUUID().toString());
-        return speakerRepository.save(session);
+        return SessionDTO.of(speakerRepository.save(Session.of(session)));
     }
 
     private WebApplicationException notFound() {
