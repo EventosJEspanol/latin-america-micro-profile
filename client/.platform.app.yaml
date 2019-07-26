@@ -43,4 +43,4 @@ web:
     commands:
         start: |
           mv target/ROOT-exec.jar app/ROOT-exec.jar
-          java -Xmx1024m -jar app/ROOT-exec.jar
+          java -Xmx1024m -jar -Dorg.jespanol.client.speaker.SpeakerService/mp-rest/url=http://speaker.internal/ -Dorg.jespanol.client.conference.ConferenceService/mp-rest/url=http://conference.internal/ -Dorg.jespanol.client.session.SessionService/mp-rest/url=http://session.internal/ app/ROOT-exec.jar
