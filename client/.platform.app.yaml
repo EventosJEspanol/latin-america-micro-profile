@@ -33,8 +33,10 @@ mounts:
 # The left-hand side is the name of the relationship as it will be exposed
 # to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
 # side is in the form `<service name>:<endpoint name>`.
-#relationships:
-#    database: "database:mysql"
+relationships:
+   speaker: speaker:http
+   conference: conference:http
+   session: session:http
 
 # The configuration of app when it is exposed to the web.
 web:
