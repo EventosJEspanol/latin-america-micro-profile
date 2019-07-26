@@ -17,6 +17,9 @@
         <jstl.version>1.2</jstl.version>
         <tomee.plugin.version>8.0.0-M3</tomee.plugin.version>
         <http.port>8888</http.port>
+        <speaker.service>http://speaker.internal/</speaker.service>
+        <conference.service>http://conference.internal/</conference.service>
+        <session.service>http://session.internal/</session.service>
     </properties>
 
     <build>
@@ -33,7 +36,9 @@
                 <configuration>
                     <tomeeClassifier>microprofile</tomeeClassifier>
                     <tomeeHttpPort>${http.port}</tomeeHttpPort>
-                    <args>-Dorg.jespanol.client.speaker.SpeakerService/mp-rest/url=http://speaker.internal/ -Dorg.jespanol.client.conference.ConferenceService/mp-rest/url=http://conference.internal/ -Dorg.jespanol.client.session.SessionService/mp-rest/url=http://session.internal/</args>
+                    <args>-Dorg.jespanol.client.speaker.SpeakerService/mp-rest/url=${speaker.service}
+                        -Dorg.jespanol.client.conference.ConferenceService/mp-rest/url=${conference.service}
+                        -Dorg.jespanol.client.session.SessionService/mp-rest/url=${session.service}</args>
                 </configuration>
             </plugin>
         </plugins>

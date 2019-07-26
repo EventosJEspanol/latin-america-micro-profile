@@ -16,7 +16,7 @@ hooks:
     build: |
       wget -P parent/pom.xml https://raw.githubusercontent.com/EventosJEspanol/latin-america-micro-profile/master/pom.xml
       mvn clean install -U -N -f parent/pom.xml
-      mvn -Dhttp.port=8888 -DskipTests clean install tomee:exec
+      mvn -Dhttp.port=8888 -Dspeaker.service=http://speaker.internal/ -Dconference.service=http://conference.internal/ -Dsession.service=http://session.internal/ -DskipTests clean install tomee:exec
 
 mounts:
 
