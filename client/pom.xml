@@ -33,6 +33,7 @@
                 <configuration>
                     <tomeeClassifier>microprofile</tomeeClassifier>
                     <tomeeHttpPort>${http.port}</tomeeHttpPort>
+                    <args>-Dorg.jespanol.client.speaker.SpeakerService/mp-rest/url=http://speaker.internal/ -Dorg.jespanol.client.conference.ConferenceService/mp-rest/url=http://conference.internal/ -Dorg.jespanol.client.session.SessionService/mp-rest/url=http://session.internal/</args>
                 </configuration>
             </plugin>
         </plugins>
