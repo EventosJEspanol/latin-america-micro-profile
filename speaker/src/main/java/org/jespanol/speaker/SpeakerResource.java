@@ -46,10 +46,10 @@ public class SpeakerResource {
 
     @PUT
     @Path("{id}")
-    public SpeakerDTO update(@PathParam("id") Integer id, @Valid Speaker speakerUpdated) {
+    public SpeakerDTO update(@PathParam("id") Integer id, @Valid SpeakerDTO speakerUpdated) {
         final Optional<Speaker> optional = speakerService.find(id);
         final Speaker speaker = optional.orElseThrow(() -> notFound());
-        speaker.update(speakerUpdated);
+        speaker.update(Speaker.of(speakerUpdated));
         speakerService.update(speaker);
         return SpeakerDTO.of(speaker);
     }
