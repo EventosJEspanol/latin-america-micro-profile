@@ -19,7 +19,7 @@
 
         <!-- Dependency versions -->
         <version.microprofile>2.2</version.microprofile>
-        <platformsh.config.version>2.2.1</platformsh.config.version>
+        <platformsh.config.version>2.2.2</platformsh.config.version>
         <jnosql.version>0.1.0-SNAPSHOT</jnosql.version>
         <elasticsearch.restclient.version>6.5.0</elasticsearch.restclient.version>
         <hibernate-entitymanager.version>5.4.3.Final</hibernate-entitymanager.version>
