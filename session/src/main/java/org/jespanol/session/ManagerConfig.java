@@ -1,9 +1,9 @@
 package org.jespanol.session;
 
 import org.elasticsearch.client.RestHighLevelClient;
-import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManager;
-import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManagerFactory;
-import org.jnosql.diana.elasticsearch.document.ElasticsearchDocumentConfiguration;
+import org.eclipse.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManager;
+import org.eclipse.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManagerFactory;
+import org.eclipse.jnosql.diana.elasticsearch.document.ElasticsearchDocumentConfiguration;
 import sh.platform.config.Config;
 import sh.platform.config.Elasticsearch;
 

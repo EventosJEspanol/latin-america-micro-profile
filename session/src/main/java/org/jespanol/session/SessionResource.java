@@ -1,8 +1,8 @@
 package org.jespanol.session;
 
 import org.elasticsearch.index.query.QueryBuilder;
-import org.jnosql.artemis.elasticsearch.document.ElasticsearchTemplate;
-import org.jnosql.artemis.util.StringUtils;
+import org.eclipse.jnosql.artemis.elasticsearch.document.ElasticsearchTemplate;
+import org.eclipse.jnosql.artemis.util.StringUtils;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -55,7 +55,8 @@ public class SessionResource {
                     .should(termQuery("description", search));
 
             LOGGER.info("the query: " + queryBuilder);
-            List<Session> sessions = template.search(queryBuilder, "Session");
+            List<Session> sessions = template.<Session>search(queryBuilder, "Session")
+                    .collect(Collectors.toList());
             LOGGER.info("the result: " + sessions);
             return sessions.stream()
                     .map(SessionDTO::of)

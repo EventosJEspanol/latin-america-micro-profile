@@ -2,8 +2,8 @@ package org.jespanol.conference;
 
 import com.mongodb.MongoClient;
 import jakarta.nosql.document.DocumentCollectionManager;
-import org.jnosql.diana.mongodb.document.MongoDBDocumentCollectionManagerFactory;
-import org.jnosql.diana.mongodb.document.MongoDBDocumentConfiguration;
+import org.eclipse.jnosql.diana.mongodb.document.MongoDBDocumentCollectionManagerFactory;
+import org.eclipse.jnosql.diana.mongodb.document.MongoDBDocumentConfiguration;
 import sh.platform.config.Config;
 import sh.platform.config.MongoDB;
 

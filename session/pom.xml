@@ -57,11 +57,11 @@
             <artifactId>config</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jnosql.artemis</groupId>
+            <groupId>org.eclipse.jnosql.artemis</groupId>
             <artifactId>elasticsearch-extension</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.jnosql.diana</groupId>
+            <groupId>org.eclipse.jnosql.diana</groupId>
             <artifactId>elasticsearch-driver</artifactId>
         </dependency>
         <dependency>

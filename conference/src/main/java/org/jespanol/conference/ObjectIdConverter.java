@@ -2,7 +2,7 @@ package org.jespanol.conference;
 
 import jakarta.nosql.mapping.AttributeConverter;
 import org.bson.types.ObjectId;
-import org.jnosql.artemis.util.StringUtils;
+import org.eclipse.jnosql.artemis.util.StringUtils;
 
 public class ObjectIdConverter implements AttributeConverter<String, ObjectId> {
 
