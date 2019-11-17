@@ -13,7 +13,11 @@ disk: 800
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
-    build: mvn -Dhttp.port=8888 -Dspeaker.service=http://speaker.internal/ -Dconference.service=http://conference.internal/ -Dsession.service=http://session.internal/ -DskipTests clean install tomee:exec
+  build: |
+    wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+    mv jq-linux64 jq
+    chmod +x jq
+    mvn -Dhttp.port=8888 -Dspeaker.service=http://speaker.internal/ -Dconference.service=http://conference.internal/ -Dsession.service=http://session.internal/ -DskipTests clean install tomee:exec
 
 mounts:
 

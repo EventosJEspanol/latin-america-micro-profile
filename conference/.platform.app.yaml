@@ -13,7 +13,11 @@ disk: 800
 
 # The hooks executed at various points in the lifecycle of the application.
 hooks:
-    build: mvn -U -DskipTests clean package payara-micro:bundle
+  build: |
+    wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+    mv jq-linux64 jq
+    chmod +x jq
+    mvn -U -DskipTests clean package payara-micro:bundle
 
 
 # The relationships of the application with services or other applications.
