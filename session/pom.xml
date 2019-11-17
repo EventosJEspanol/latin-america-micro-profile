@@ -3,17 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.jespanol</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-    </parent>
-
     <artifactId>session</artifactId>
     <packaging>jar</packaging>
 
     <properties>
         <kumuluzee.maven.version>3.5.0</kumuluzee.maven.version>
+        <platformsh.config.version>2.2.3</platformsh.config.version>
+        <jnosql.version>0.1.0.M1</jnosql.version>
+        <elasticsearch.restclient.version>6.5.0</elasticsearch.restclient.version>
     </properties>
 
     <dependencyManagement>
@@ -37,6 +34,19 @@
                 <version>${kumuluzee.maven.version}</version>
             </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven-war-plugin.version}</version>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                        <packagingExcludes>pom.xml</packagingExcludes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
     <dependencies>
@@ -55,19 +65,42 @@
         <dependency>
             <groupId>sh.platform</groupId>
             <artifactId>config</artifactId>
+            <version>${platformsh.config.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.artemis</groupId>
             <artifactId>elasticsearch-extension</artifactId>
+            <version>${jnosql.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.diana</groupId>
             <artifactId>elasticsearch-driver</artifactId>
+            <version>${jnosql.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.elasticsearch.client</groupId>
+                    <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>${elasticsearch.restclient.version}</version>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>oss.sonatype.org-snapshot</id>
+            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>

@@ -3,16 +3,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <groupId>org.jespanol</groupId>
-        <artifactId>parent</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-    </parent>
-
     <artifactId>client</artifactId>
     <packaging>war</packaging>
 
     <properties>
+        <version.microprofile>3.2</version.microprofile>
         <version.krazo>1.0.0-SNAPSHOT</version.krazo>
         <jstl.version>1.2</jstl.version>
         <tomee.plugin.version>8.0.0-M3</tomee.plugin.version>
@@ -20,6 +15,8 @@
         <speaker.service>http://speaker.internal/</speaker.service>
         <conference.service>http://conference.internal/</conference.service>
         <session.service>http://session.internal/</session.service>
+        <platformsh.config.version>2.2.3</platformsh.config.version>
+        <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
     </properties>
 
     <build>
@@ -38,21 +35,38 @@
                     <tomeeHttpPort>${http.port}</tomeeHttpPort>
                     <args>-Dorg.jespanol.client.speaker.SpeakerService/mp-rest/url=${speaker.service}
                         -Dorg.jespanol.client.conference.ConferenceService/mp-rest/url=${conference.service}
-                        -Dorg.jespanol.client.session.SessionService/mp-rest/url=${session.service}</args>
+                        -Dorg.jespanol.client.session.SessionService/mp-rest/url=${session.service}
+                    </args>
                 </configuration>
             </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-war-plugin</artifactId>
+                    <version>${maven-war-plugin.version}</version>
+                    <configuration>
+                        <failOnMissingWebXml>false</failOnMissingWebXml>
+                        <packagingExcludes>pom.xml</packagingExcludes>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
 
     <dependencies>
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
+            <version>${version.microprofile}</version>
             <type>pom</type>
+            <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>sh.platform</groupId>
             <artifactId>config</artifactId>
+            <version>${platformsh.config.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.krazo</groupId>
@@ -75,5 +89,18 @@
             <version>${version.krazo}</version>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>oss.sonatype.org-snapshot</id>
+            <url>http://oss.sonatype.org/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
 
 </project>
