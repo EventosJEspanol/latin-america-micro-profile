@@ -3,7 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-
+    <groupId>org.jespanol</groupId>
+    <version>0.0.1</version>
     <artifactId>speaker</artifactId>
     <packaging>war</packaging>
 
@@ -11,6 +12,8 @@
         <thorntail.maven.version>2.5.0.Final</thorntail.maven.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <hibernate-entitymanager.version>5.4.3.Final</hibernate-entitymanager.version>
+        <platformsh.config.version>2.2.3</platformsh.config.version>
+        <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -66,6 +69,7 @@
         <dependency>
             <groupId>sh.platform</groupId>
             <artifactId>config</artifactId>
+            <version>${platformsh.config.version}</version>
         </dependency>
         <dependency>
             <groupId>postgresql</groupId>
