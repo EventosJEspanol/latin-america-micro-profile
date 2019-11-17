@@ -14,6 +14,7 @@
         <platformsh.config.version>2.2.3</platformsh.config.version>
         <jnosql.version>0.1.0.M1</jnosql.version>
         <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
+        <java.version>8</java.version>
     </properties>
 
     <build>
@@ -30,6 +31,14 @@
                 <configuration>
                     <payaraVersion>${version.payara.micro}</payaraVersion>
                     <autoDeployEmptyContextRoot>true</autoDeployEmptyContextRoot>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>

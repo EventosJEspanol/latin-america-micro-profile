@@ -14,6 +14,7 @@
         <hibernate-entitymanager.version>5.4.3.Final</hibernate-entitymanager.version>
         <platformsh.config.version>2.2.3</platformsh.config.version>
         <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
+        <java.version>8</java.version>
     </properties>
 
     <dependencyManagement>
@@ -35,6 +36,14 @@
                 <groupId>io.thorntail</groupId>
                 <artifactId>thorntail-maven-plugin</artifactId>
                 <version>${thorntail.maven.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
             </plugin>
         </plugins>
         <pluginManagement>
