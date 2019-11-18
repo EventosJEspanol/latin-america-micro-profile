@@ -31,4 +31,10 @@ relationships:
 # The configuration of app when it is exposed to the web.
 web:
     commands:
-        start: java -jar -Xmx1024m target/conference-microbundle.jar --port $PORT
+        start: |
+           export MONGO_PORT=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq ".mongodb[0].port"`
+           export MONGO_HOST=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq ".mongodb[0].host"`
+           export MONGO_PASSWORD=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq ".mongodb[0].password"`
+           export MONGO_USER=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq ".mongodb[0].username"`
+           export MONGO_DATABASE=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq ".mongodb[0].path"`
+           java -jar -Xmx1024m target/conference-microbundle.jar --port $PORT
