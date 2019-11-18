@@ -12,7 +12,7 @@
         <payara.plugin.version>1.0.5</payara.plugin.version>
         <version.microprofile>3.2</version.microprofile>
         <platformsh.config.version>2.2.3</platformsh.config.version>
-        <jnosql.version>0.1.0.M1</jnosql.version>
+        <jnosql.version>0.1.0-SNAPSHOT</jnosql.version>
         <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
         <java.version>8</java.version>
     </properties>
