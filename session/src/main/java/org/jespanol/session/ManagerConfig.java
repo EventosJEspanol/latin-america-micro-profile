@@ -1,29 +1,26 @@
 package org.jespanol.session;
 
-import org.elasticsearch.client.RestHighLevelClient;
-import org.eclipse.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManager;
-import org.eclipse.jnosql.diana.elasticsearch.document.ElasticsearchDocumentCollectionManagerFactory;
-import org.eclipse.jnosql.diana.elasticsearch.document.ElasticsearchDocumentConfiguration;
-import sh.platform.config.Config;
-import sh.platform.config.Elasticsearch;
+import jakarta.nosql.document.DocumentCollectionManager;
+import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.inject.Disposes;
 import javax.enterprise.inject.Produces;
-import java.io.IOException;
+import javax.inject.Inject;
 
 @ApplicationScoped
 public class ManagerConfig {
 
-    private static final String INDEX = "conference";
+    @Inject
+    @ConfigProperty(name = "document")
+    private DocumentCollectionManager manager;
 
     @Produces
-    @ApplicationScoped
-    public ElasticsearchDocumentCollectionManager getColumn() throws IOException {
-        Config config = new Config();
-        final Elasticsearch elasticsearch = config.getCredential("elasticsearch", Elasticsearch::new);
-        final RestHighLevelClient client = elasticsearch.get();
-        ElasticsearchDocumentConfiguration configuration = new ElasticsearchDocumentConfiguration();
-        final ElasticsearchDocumentCollectionManagerFactory factory = configuration.get(client);
-        return factory.get(INDEX);
+    public DocumentCollectionManager getManager() {
+        return manager;
+    }
+
+    public void destroy(@Disposes DocumentCollectionManager manager) {
+        manager.close();
     }
 }
