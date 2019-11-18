@@ -37,4 +37,4 @@ web:
            export MONGO_PASSWORD=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".mongodb[0].password"`
            export MONGO_USER=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".mongodb[0].username"`
            export MONGO_DATABASE=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".mongodb[0].path"`
-           java -jar -Xmx1024m -Ddocument.settings.jakarta.nosql.host=$MONGO_ADDRESS -Ddocument.database=$MONGO_DATABASE -Ddocument.settings.jakarta.nosql.user=$MONGO_USER -Ddocument.settings.jakarta.nosql.password=$MONGO_PASSWORD target/conference-microbundle.jar --port $PORT
+           java -jar -Xmx1024m -Ddocument.settings.jakarta.nosql.host=$MONGO_ADDRESS -Ddocument.database=$MONGO_DATABASE -Ddocument.settings.jakarta.nosql.user=$MONGO_USER -Ddocument.settings.jakarta.nosql.password=$MONGO_PASSWORD -Dmongodb.authentication.source=$MONGO_DATABASE target/conference-microbundle.jar --port $PORT
