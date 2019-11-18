@@ -38,6 +38,6 @@ web:
            export MONGO_USER=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq ".mongodb[0].username"`
            export MONGO_DATABASE=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq ".mongodb[0].path"`
            echo "test one, two three"
-          echo "------------->>>>>>>>>>>>>>>>>>>>>>"
+           echo "------------->>>>>>>>>>>>>>>>>>>>>>"
            echo $MONGO_PORT
            java -jar -Xmx1024m target/conference-microbundle.jar --port $PORT
