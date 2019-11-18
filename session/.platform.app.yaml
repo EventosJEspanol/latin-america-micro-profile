@@ -36,5 +36,15 @@ relationships:
 web:
     commands:
         start: |
-           mv target/session.jar app/session.jar
-           java -jar -Xmx1024m -Dkumuluzee.server.http.port=$PORT app/session.jar
+          mv target/session.jar app/session.jar
+          export ES_PORT=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".elasticsearch[0].port"`
+          export ES_HOST=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".elasticsearch[0].host"`
+          export ES_ADDRESS="${ES_HOST}:${ES_PORT}"
+          export ES_PASSWORD=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".elasticsearch[0].password"`
+          export ES_USER=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".elasticsearch[0].username"`
+          java -jar -Xmx1024m -Ddocument.settings.jakarta.nosql.host=$ES_ADDRESS \
+          -Ddocument.database=$ES_DATABASE -Ddocument.settings.jakarta.nosql.user=$ES_USER \
+          -Ddocument.settings.jakarta.nosql.password=$ES_PASSWORD \
+          -Dkumuluzee.server.http.port=$PORT app/session.jar
+
+

@@ -10,8 +10,7 @@
 
     <properties>
         <kumuluzee.maven.version>3.5.0</kumuluzee.maven.version>
-        <platformsh.config.version>2.2.3</platformsh.config.version>
-        <jnosql.version>0.1.0.M1</jnosql.version>
+        <jnosql.version>0.1.0-SNAPSHOT</jnosql.version>
         <elasticsearch.restclient.version>6.5.0</elasticsearch.restclient.version>
         <java.version>8</java.version>
     </properties>
@@ -72,11 +71,6 @@
         <dependency>
             <groupId>com.kumuluz.ee</groupId>
             <artifactId>kumuluzee-bean-validation-hibernate-validator</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>sh.platform</groupId>
-            <artifactId>config</artifactId>
-            <version>${platformsh.config.version}</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.jnosql.artemis</groupId>
