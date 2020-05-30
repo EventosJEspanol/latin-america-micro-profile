@@ -9,7 +9,7 @@
     <packaging>war</packaging>
 
     <properties>
-        <thorntail.maven.version>2.5.0.Final</thorntail.maven.version>
+        <thorntail.maven.version>2.6.0.Final</thorntail.maven.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <hibernate-entitymanager.version>5.4.3.Final</hibernate-entitymanager.version>
         <platformsh.config.version>2.2.3</platformsh.config.version>
