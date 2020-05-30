@@ -55,7 +55,7 @@ public class SessionResource {
                     .should(termQuery("description", search));
 
             LOGGER.info("the query: " + queryBuilder);
-            List<Session> sessions = template.<Session>search(queryBuilder, "Session")
+            List<Session> sessions = template.<Session>search(queryBuilder)
                     .collect(Collectors.toList());
             LOGGER.info("the result: " + sessions);
             return sessions.stream()
