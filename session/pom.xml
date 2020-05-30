@@ -11,7 +11,6 @@
     <properties>
         <kumuluzee.maven.version>3.9.0</kumuluzee.maven.version>
         <jnosql.version>1.0.0-SNAPSHOT</jnosql.version>
-        <elasticsearch.restclient.version>6.5.0</elasticsearch.restclient.version>
         <java.version>8</java.version>
     </properties>
 
@@ -81,18 +80,7 @@
             <groupId>org.eclipse.jnosql.diana</groupId>
             <artifactId>elasticsearch-driver</artifactId>
             <version>${jnosql.version}</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.elasticsearch.client</groupId>
-                    <artifactId>elasticsearch-rest-high-level-client</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>elasticsearch-rest-high-level-client</artifactId>
-            <version>${elasticsearch.restclient.version}</version>
-        </dependency>
+         </dependency>
     </dependencies>
 
     <repositories>
