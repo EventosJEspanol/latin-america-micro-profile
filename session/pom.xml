@@ -10,7 +10,7 @@
 
     <properties>
         <kumuluzee.maven.version>3.5.0</kumuluzee.maven.version>
-        <jnosql.version>0.1.0-SNAPSHOT</jnosql.version>
+        <jnosql.version>1.0.0-SNAPSHOT</jnosql.version>
         <elasticsearch.restclient.version>6.5.0</elasticsearch.restclient.version>
         <java.version>8</java.version>
     </properties>
