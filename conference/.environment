@@ -6,4 +6,4 @@ export MONGO_USER=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".mong
 export MONGO_DATABASE=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".mongodb[0].path"`
 export JAVA_MEMORY=-Xmx$(jq .info.limits.memory /run/config.json)m
 export JAVA_OPTS="$JAVA_MEMORY -XX:+ExitOnOutOfMemoryError"
-export CREDENTIAL="-Ddocument.settings.jakarta.nosql.host=$MONGO_ADDRESS -Ddocument.database=$MONGO_DATABASE -Ddocument.settings.jakarta.nosql.user=$MONGO_USER -Ddocument.settings.jakarta.nosql.password=$MONGO_PASSWORD -Ddocument.settings.mongodb.authentication.source=$MONGO_DATABASE \"
+export CREDENTIAL="-Ddocument.settings.jakarta.nosql.host=$MONGO_ADDRESS -Ddocument.database=$MONGO_DATABASE -Ddocument.settings.jakarta.nosql.user=$MONGO_USER -Ddocument.settings.jakarta.nosql.password=$MONGO_PASSWORD -Ddocument.settings.mongodb.authentication.source=$MONGO_DATABASE"
