@@ -1,3 +1,19 @@
+# The routes of the project.
+#"https://{default}/conferences":
+#    id: conference
+#    type: upstream
+#    upstream: "conference:http"
+
+#"https://{default}/sessions":
+#    id: session
+#    type: upstream
+#    upstream: "session:http"
+
+#"https://{default}/speakers":
+#    id: speaker
+#    type: upstream
+#    upstream: "speaker:http"
+
 "https://{default}/":
   type: upstream
   upstream: "client:http"
