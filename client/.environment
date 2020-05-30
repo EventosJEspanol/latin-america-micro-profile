@@ -1,0 +1,2 @@
+export JAVA_MEMORY=-Xmx$(jq .info.limits.memory /run/config.json)m
+export JAVA_OPTS="$JAVA_MEMORY -XX:+ExitOnOutOfMemoryError"

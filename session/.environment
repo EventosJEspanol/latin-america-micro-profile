@@ -1,0 +1,8 @@
+export ES_PORT=`echo $PLATFORM_RELATIONSHIPS|base64 -d|jq -r ".elasticsearch[0].port"`
+export ES_HOST=`echo $PLATFORM_RELATIONSHIPS|base64 -d|jq -r ".elasticsearch[0].host"`
+export ES_ADDRESS="${ES_HOST}:${ES_PORT}"
+export ES_PASSWORD=`echo $PLATFORM_RELATIONSHIPS|base64 -d|jq -r ".elasticsearch[0].password"`
+export ES_USER=`echo $PLATFORM_RELATIONSHIPS|base64 -d|jq -r ".elasticsearch[0].username"`
+export JAVA_MEMORY=-Xmx$(jq .info.limits.memory /run/config.json)m
+export JAVA_OPTS="$JAVA_MEMORY -XX:+ExitOnOutOfMemoryError"
+export CREDENTIAL="-Ddocument.settings.jakarta.nosql.host=$ES_ADDRESS -Ddocument.settings.jakarta.nosql.user=$ES_USER -Ddocument.settings.jakarta.nosql.password=$ES_PASSWORD \"

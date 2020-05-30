@@ -8,43 +8,20 @@ name: session
 
 # The runtime the application uses.
 type: "java:8"
-
 disk: 800
-
-# The hooks executed at various points in the lifecycle of the application.
 hooks:
-    build: |
-        wget https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
-        mv jq-linux64 jq
-        chmod +x jq
-        mvn -DskipTests -U clean package kumuluzee:repackage
+    build: mvn -DskipTests -U clean package kumuluzee:repackage
 
 mounts:
     '/app':
         source: local
         source_path: app_source
-
-# The relationships of the application with services or other applications.
-#
-# The left-hand side is the name of the relationship as it will be exposed
-# to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
-# side is in the form `<service name>:<endpoint name>`.
 relationships:
   elasticsearch: 'elasticsearch:elasticsearch'
-
-# The configuration of app when it is exposed to the web.
 web:
     commands:
         start: |
           mv target/session.jar app/session.jar
-          export ES_PORT=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".elasticsearch[0].port"`
-          export ES_HOST=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".elasticsearch[0].host"`
-          export ES_ADDRESS="${ES_HOST}:${ES_PORT}"
-          export ES_PASSWORD=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".elasticsearch[0].password"`
-          export ES_USER=`echo $PLATFORM_RELATIONSHIPS|base64 -d|json_pp|./jq -r ".elasticsearch[0].username"`
-          java -jar -Xmx1024m -Ddocument.settings.jakarta.nosql.host=$ES_ADDRESS \
-          -Ddocument.settings.jakarta.nosql.user=$ES_USER \
-          -Ddocument.settings.jakarta.nosql.password=$ES_PASSWORD \
-          -Dkumuluzee.server.http.port=$PORT app/session.jar
+          java -jar $JAVA_OPTS $CREDENTIAL -Dkumuluzee.server.http.port=$PORT app/session.jar
 
 

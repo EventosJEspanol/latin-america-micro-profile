@@ -1,30 +1,11 @@
-# This file describes an application. You can have multiple applications
-# in the same project.
-#
-# See https://docs.platform.sh/user_guide/reference/platform-app-yaml.html
-
-# The name of this app. Must be unique within a project.
 name: speaker
-
-# The runtime the application uses.
 type: "java:8"
-
 disk: 800
-
-# The hooks executed at various points in the lifecycle of the application.
 hooks:
     build: mvn -U -DskipTests clean package thorntail:package
-
-# The relationships of the application with services or other applications.
-#
-# The left-hand side is the name of the relationship as it will be exposed
-# to the application in the PLATFORM_RELATIONSHIPS variable. The right-hand
-# side is in the form `<service name>:<endpoint name>`.
 relationships:
   postgresql: 'postgresql:postgresql'
-
-# The configuration of app when it is exposed to the web.
 web:
     commands:
-        start: java -jar -Xmx1024m -Dswarm.http.port=$PORT -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true target/speaker-thorntail.jar
+        start: java -jar  $JAVA_OPTS -Dswarm.http.port=$PORT -Djava.net.preferIPv4Stack=true -Djava.net.preferIPv4Addresses=true target/speaker-thorntail.jar
 
